@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="EditProcessApplicationAdvancedGroupBoxHeader" xml:space="preserve">
+    <value>Erweiterte Informationen konfigurieren</value>
+  </data>
+  <data name="EditProcessApplicationAdvancedTabHeader" xml:space="preserve">
+    <value>Erweitert</value>
+  </data>
+  <data name="EditProcessApplicationAffinityMaskLabelContent" xml:space="preserve">
+    <value>Prozessorzuordnung:</value>
+  </data>
+  <data name="EditProcessApplicationAffinityMaskSelectedBitCountLabelContent" xml:space="preserve">
+    <value>Es sind {0} logische Prozessoren ausgewählt</value>
+  </data>
+  <data name="EditProcessApplicationAffinityMaskTooltip" xml:space="preserve">
+    <value>Affinitätsmaske für diese Anwendung festlegen</value>
+  </data>
+  <data name="EditProcessApplicationArgumentsLabelContent" xml:space="preserve">
+    <value>Argumente:</value>
+  </data>
+  <data name="EditProcessApplicationCommonGroupBoxHeader" xml:space="preserve">
+    <value>Allgemeine Informationen konfigurieren</value>
+  </data>
+  <data name="EditProcessApplicationCommonTabHeader" xml:space="preserve">
+    <value>Allgemein</value>
+  </data>
+  <data name="EditProcessApplicationDetermineApplicationNameTooltip" xml:space="preserve">
+    <value>Anwendungsnamen versuchen zu ermitteln</value>
+  </data>
+  <data name="EditProcessApplicationDialogDescriptionText" xml:space="preserve">
+    <value>Bearbeiten Sie die Konfiguration welche mit der Anwendung verknüpft ist.</value>
+  </data>
+  <data name="EditProcessApplicationDialogTitle" xml:space="preserve">
+    <value>Anwendung konfigurieren</value>
+  </data>
+  <data name="EditProcessApplicationExecuteLabelContent" xml:space="preserve">
+    <value>Ausführen:</value>
+  </data>
+  <data name="EditProcessApplicationHotKeyKeepsEmptyInfoText" xml:space="preserve">
+    <value>Halten Sie mindestens Shift, Alt und/oder Steuerung, zudem die Taste gedrückt um den Hot Key zu bestimmen.
+Bleibt das Eingabefeld nach erfolgter Eingabe leer, kann es sein das der Hot Key bereits vergeben ist und aktiviert wurde!</value>
+  </data>
+  <data name="EditProcessApplicationHotKeyLabelContent" xml:space="preserve">
+    <value>Hotkey:</value>
+  </data>
+  <data name="EditProcessApplicationNameLabelContent" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="EditProcessApplicationPasswordCapsLockIsOn" xml:space="preserve">
+    <value>Feststelltaste ist aktiviert.</value>
+  </data>
+  <data name="EditProcessApplicationPasswordLabelContent" xml:space="preserve">
+    <value>Passwort:</value>
+  </data>
+  <data name="EditProcessApplicationProcessPriorityClassLabelContent" xml:space="preserve">
+    <value>Prozesspriorität:</value>
+  </data>
+  <data name="EditProcessApplicationProcessWindowStyleLabelContent" xml:space="preserve">
+    <value>Fensterstil:</value>
+  </data>
+  <data name="EditProcessApplicationRunAsGroupBoxHeader" xml:space="preserve">
+    <value>Ausführen als...</value>
+  </data>
+  <data name="EditProcessApplicationSelectDirectoryDialogTitle" xml:space="preserve">
+    <value>Wählen Sie das zu öffnende Verzeichnis aus</value>
+  </data>
+  <data name="EditProcessApplicationSelectDirectoryTooltip" xml:space="preserve">
+    <value>Wählen Sie das zu öffnende Verzeichnis aus</value>
+  </data>
+  <data name="EditProcessApplicationSelectFilePathDialogTitle" xml:space="preserve">
+    <value>Wählen Sie die zu startende Datei aus</value>
+  </data>
+  <data name="EditProcessApplicationSelectFilePathTooltip" xml:space="preserve">
+    <value>Wählen Sie die zu startende Datei aus</value>
+  </data>
+  <data name="EditProcessApplicationStretchSmallImageLabelContent" xml:space="preserve">
+    <value>Kleines Bild auf Buttongröße strecken</value>
+  </data>
+  <data name="EditProcessApplicationUsernameLabelContent" xml:space="preserve">
+    <value>Nutzername:</value>
+  </data>
+  <data name="EditProcessApplicationWorkingDirectoryDialogTitle" xml:space="preserve">
+    <value>Wählen Sie ein Arbeitsverzeichnis für die Anwendung aus</value>
+  </data>
+  <data name="EditProcessApplicationWorkingDirectoryLabelContent" xml:space="preserve">
+    <value>Arbeitsverzeichnis:</value>
+  </data>
+  <data name="EditProcessApplicationWorkingDirectoryTooltip" xml:space="preserve">
+    <value>Wählen Sie ein Arbeitsverzeichnis für die Anwendung aus</value>
+  </data>
+  <data name="PriorityClassAboveNormal" xml:space="preserve">
+    <value>Über normal</value>
+  </data>
+  <data name="PriorityClassBelowNormal" xml:space="preserve">
+    <value>Unter normal</value>
+  </data>
+  <data name="PriorityClassHigh" xml:space="preserve">
+    <value>Hoch</value>
+  </data>
+  <data name="PriorityClassIdle" xml:space="preserve">
+    <value>Hintergrund</value>
+  </data>
+  <data name="PriorityClassNormal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="PriorityClassRealtime" xml:space="preserve">
+    <value>Echtzeit</value>
+  </data>
+  <data name="WindowStyleHidden" xml:space="preserve">
+    <value>Versteckt</value>
+  </data>
+  <data name="WindowStyleMaximized" xml:space="preserve">
+    <value>Maximiert</value>
+  </data>
+  <data name="WindowStyleMinimized" xml:space="preserve">
+    <value>Minimiert</value>
+  </data>
+  <data name="WindowStyleNormal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+</root>

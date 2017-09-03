@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Smartbar.ProcessApplication.Plugins.SystemTools</id>
+        <version>1.0.3.1</version>
+        <authors>Jan Hafner</authors>
+        <owners>Jan Hafner</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Adds the ability to comfortably add system tools as applications.</description>
+        <copyright>Copyright © Jan Hafner</copyright>
+        <tags>smartbar plugin</tags>
+    </metadata>
+    <files>
+      <file src="bin\Release\de\JanHafner.Smartbar.ProcessApplication.Plugins.SystemTools.resources.dll" target="lib\net461\de\JanHafner.Smartbar.ProcessApplication.Plugins.SystemTools.resources.dll" />
+      <file src="bin\Release\JanHafner.Smartbar.ProcessApplication.Plugins.SystemTools.dll" target="lib\net461\JanHafner.Smartbar.ProcessApplication.Plugins.SystemTools.dll" />
+    </files>
+</package>

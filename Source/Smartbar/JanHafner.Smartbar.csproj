@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E08D92C8-D8EA-43C9-AABE-391857D414F7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JanHafner.Smartbar</RootNamespace>
+    <AssemblyName>Smartbar</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>ftp://waws-prod-am2-055.ftp.azurewebsites.windows.net/site/wwwroot/Smartbar/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Smartbar</ProductName>
+    <PublisherName>Jan Hafner</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationVersion>1.8.5.6</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>4E0C6B1CD7ED9FF55ECD6220131B603DA101040B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>JanHafner.Smartbar_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net451\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JanHafner.Toolkit.Common, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Binaries\JanHafner.Toolkit.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="JanHafner.Toolkit.Windows.HotKey">
+      <HintPath>..\Binaries\JanHafner.Toolkit.Windows.HotKey.dll</HintPath>
+    </Reference>
+    <Reference Include="JanHafner.Toolkit.Wpf">
+      <HintPath>..\Binaries\JanHafner.Toolkit.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.4.3.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.1.7.1\lib\net46\MahApps.Metro.IconPacks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.14.0.832, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.6.2.1\lib\net45\Prism.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Composition.Registration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="..\Annotations\BaseTypeRequiredAttribute.cs">
+      <Link>Annotations\BaseTypeRequiredAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\CanBeNullAttribute.cs">
+      <Link>Annotations\CanBeNullAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\CollectionAccessAttribute.cs">
+      <Link>Annotations\CollectionAccessAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\CollectionAccessType.cs">
+      <Link>Annotations\CollectionAccessType.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\ImplicitUseKindFlags.cs">
+      <Link>Annotations\ImplicitUseKindFlags.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\ImplicitUseTargetFlags.cs">
+      <Link>Annotations\ImplicitUseTargetFlags.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\InstantHandleAttribute.cs">
+      <Link>Annotations\InstantHandleAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\InvokerParameterNameAttribute.cs">
+      <Link>Annotations\InvokerParameterNameAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\ItemCanBeNullAttribute.cs">
+      <Link>Annotations\ItemCanBeNullAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\ItemNotNullAttribute.cs">
+      <Link>Annotations\ItemNotNullAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\LinqTunnelAttribute.cs">
+      <Link>Annotations\LinqTunnelAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\LocalizationRequiredAttribute.cs">
+      <Link>Annotations\LocalizationRequiredAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\MeansImplicitUseAttribute.cs">
+      <Link>Annotations\MeansImplicitUseAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\NotifyPropertyChangedInvocatorAttribute.cs">
+      <Link>Annotations\NotifyPropertyChangedInvocatorAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\NotNullAttribute.cs">
+      <Link>Annotations\NotNullAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\PublicAPIAttribute.cs">
+      <Link>Annotations\PublicAPIAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\PureAttribute.cs">
+      <Link>Annotations\PureAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\RegexPatternAttribute.cs">
+      <Link>Annotations\RegexPatternAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\StringFormatMethodAttribute.cs">
+      <Link>Annotations\StringFormatMethodAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\UsedImplicitlyAttribute.cs">
+      <Link>Annotations\UsedImplicitlyAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\ValueProviderAttribute.cs">
+      <Link>Annotations\ValueProviderAttribute.cs</Link>
+    </Compile>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Infrastructure\CommandLine\CommandLineHandler.cs" />
+    <Compile Include="Infrastructure\CommandLine\CommandLineParser.cs" />
+    <Compile Include="Controls\ApplicationsGrid.xaml.cs">
+      <DependentUpon>ApplicationsGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EmptyApplicationButton\EmptyApplicationButton.xaml.cs">
+      <DependentUpon>EmptyApplicationButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FaultedApplicationButton\Localization\FaultedApplicationButton.de.Designer.cs">
+      <DependentUpon>FaultedApplicationButton.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Controls\FaultedApplicationButton\Localization\FaultedApplicationButton.Designer.cs">
+      <DependentUpon>FaultedApplicationButton.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Controls\FaultedApplicationButton\FaultedApplicationButton.xaml.cs">
+      <DependentUpon>FaultedApplicationButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FaultedApplicationButton\FaultedApplicationButtonProvider.cs" />
+    <Compile Include="Controls\FaultedApplicationButton\FaultedApplicationViewModel.cs" />
+    <Compile Include="Controls\FaultedApplicationButton\IFaultedApplicationButtonProvider.cs" />
+    <Compile Include="Controls\FaultedApplicationButton\FaultedApplicationViewModelDeleteCommand.cs" />
+    <Compile Include="Controls\SelectedApplicationButtonsList.cs" />
+    <Compile Include="Controls\PotentialApplicationButtonsForDropList.cs" />
+    <Compile Include="Controls\TrayPopup\Localization\TrayPopup.de.Designer.cs">
+      <DependentUpon>TrayPopup.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Controls\TrayPopup\Localization\TrayPopup.Designer.cs">
+      <DependentUpon>TrayPopup.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Controls\TrayPopup\TrayPopup.xaml.cs">
+      <DependentUpon>TrayPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\ApplicationButtonFactory.cs" />
+    <Compile Include="Infrastructure\ApplicationDragDropDataApplicationCreationHandler.cs" />
+    <Compile Include="Infrastructure\ApplicationDragDropDataDataObjectTranslator.cs" />
+    <Compile Include="Infrastructure\Commanding\Applications\DeleteApplicationCommandHandler.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\GroupCreated.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\GroupDeleted.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\GroupRenamed.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\GroupRepositioned.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\GroupSelected.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\GroupUnselected.cs" />
+    <Compile Include="Infrastructure\Commanding\Plugins\PersistPluginConfigurationCommandHandler.cs" />
+    <Compile Include="Infrastructure\Commanding\Plugins\PluginUninstalled.cs" />
+    <Compile Include="Infrastructure\Commanding\Plugins\PluginInstalled.cs" />
+    <Compile Include="Infrastructure\CommandLine\CommandLineVerbs.cs" />
+    <Compile Include="Infrastructure\Composition\IModuleExplorer.cs" />
+    <Compile Include="Infrastructure\Composition\MefAssemlyBindingWorkaroundResolver.cs" />
+    <Compile Include="Infrastructure\Composition\RecursiveDirectoryCatalog.cs" />
+    <Compile Include="Infrastructure\Composition\SmartbarCompositionContainer.cs" />
+    <Compile Include="Infrastructure\DatabaseRepairer.cs" />
+    <Compile Include="Infrastructure\Notifications\Application\SmartbarUpdateAvailable.cs" />
+    <Compile Include="Infrastructure\Notifications\Application\UpdateSmartbarNotifier.cs" />
+    <Compile Include="Infrastructure\Notifications\BackgroundNotifier.cs" />
+    <Compile Include="Infrastructure\Notifications\BackgroundNotifierAggregator.cs" />
+    <Compile Include="Infrastructure\Notifications\Plugins\IPluginNotificationFilter.cs" />
+    <Compile Include="Infrastructure\Notifications\Plugins\PluginNotificationFilter.cs" />
+    <Compile Include="Infrastructure\Notifications\Plugins\PluginUpdatesAvailable.cs" />
+    <Compile Include="Infrastructure\Notifications\Plugins\UpdatePluginNotifier.cs" />
+    <Compile Include="Infrastructure\ExtractedApplicationDragDropData.cs" />
+    <Compile Include="Infrastructure\IApplicationButtonFactory.cs" />
+    <Compile Include="Infrastructure\Commanding\Appearence\UpdateSmartbarSettingsCommand.cs" />
+    <Compile Include="Infrastructure\Commanding\Appearence\UpdateSmartbarSettingsCommandHandler.cs" />
+    <Compile Include="Infrastructure\Commanding\CommandDispatcher.cs" />
+    <Compile Include="Infrastructure\Commanding\CommandProcessorSuccessfullyCompleted.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\ClearGroupCommand.cs.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\ClearGroupCommandHandler.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\CreateGroupCommand.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\CreateGroupCommandHandler.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\DeleteGroupCommand.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\DeleteGroupCommandHandler.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\RenameGroupCommand.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\RenameGroupCommandHandler.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\RepositionGroupCommand.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\RepositionGroupCommandHandler.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\SelectGroupCommand.cs" />
+    <Compile Include="Infrastructure\Commanding\Groups\SelectGroupCommandHandler.cs" />
+    <Compile Include="Infrastructure\Composition\SmartbarCatalog.cs" />
+    <Compile Include="Infrastructure\ImportApplicationInformation.cs" />
+    <Compile Include="Infrastructure\PluginPackageManager.cs" />
+    <Compile Include="Infrastructure\PotentialApplicationButtonForDropInformation.cs" />
+    <Compile Include="Infrastructure\ViewModelFactory.cs" />
+    <Compile Include="Localization\Dialogs.Designer.cs">
+      <DependentUpon>Dialogs.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\Dialogs.de.Designer.cs">
+      <DependentUpon>Dialogs.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Controls\EmptyApplicationButton\EmptyApplicationButtonProvider.cs" />
+    <Compile Include="Localization\UserMessages.de.Designer.cs">
+      <DependentUpon>UserMessages.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\UserMessages.Designer.cs">
+      <DependentUpon>UserMessages.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Infrastructure\Wow64FileSystemDeredirector.cs" />
+    <Compile Include="Views\EditSmartbarSettings\EditSmartbarSettingsOpenAboutDialogCommand.cs" />
+    <Compile Include="Views\About\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\About\AboutViewModel.cs" />
+    <Compile Include="Views\About\Localization\About.de.Designer.cs">
+      <DependentUpon>About.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\About\Localization\About.Designer.cs">
+      <DependentUpon>About.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\EditSmartbarSettings\Localization\EditSmartbarSettings.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditSmartbarSettings.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditSmartbarSettings\Localization\EditSmartbarSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditSmartbarSettings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Group\CreateGroup\Localization\CreateGroup.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateGroup.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Group\CreateGroup\Localization\CreateGroup.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateGroup.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Group\GroupValidationMessages.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroupValidationMessages.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Group\GroupValidationMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroupValidationMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Group\RenameGroup\Localization\RenameGroup.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RenameGroup.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Group\RenameGroup\Localization\RenameGroup.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RenameGroup.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow\Localization\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\MainWindow\Localization\MainWindow.de.Designer.cs">
+      <DependentUpon>MainWindow.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Controls\EmptyApplicationButton\EmptyApplicationViewModel.cs" />
+    <Compile Include="Views\Group\GroupViewModelClearCommand.cs" />
+    <Compile Include="Views\Group\GroupViewModelDeleteWithMiddleMouseButtonCommand.cs" />
+    <Compile Include="Views\Group\GroupViewModelDeleteCommand.cs" />
+    <Compile Include="Views\Group\GroupViewModelShiftLeftCommand.cs" />
+    <Compile Include="Views\Group\GroupViewModelRenameCommand.cs" />
+    <Compile Include="Views\Group\GroupViewModelShiftRightCommand.cs" />
+    <Compile Include="Views\MainWindow\MainWindowViewModelOpenPluginManagerCommand.cs" />
+    <Compile Include="Views\MainWindow\MainWindowViewModelCreateGroupCommand.cs" />
+    <Compile Include="Views\MainWindow\MainWindowViewModelEditSmartbarSettingsCommand.cs" />
+    <Compile Include="Views\Group\GroupViewModel.cs" />
+    <Compile Include="Views\MainWindow\MainWindowViewModel.cs" />
+    <Compile Include="Views\EditSmartbarSettings\EditSmartbarSettings.xaml.cs">
+      <DependentUpon>EditSmartbarSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditSmartbarSettings\EditSmartbarSettingsViewModel.cs" />
+    <Compile Include="Views\Group\CreateGroup\CreateGroup.xaml.cs">
+      <DependentUpon>CreateGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Group\CreateGroup\CreateGroupViewModel.cs" />
+    <Compile Include="Views\Group\RenameGroup\RenameGroup.xaml.cs">
+      <DependentUpon>RenameGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Group\RenameGroup\RenameGroupViewModel.cs" />
+    <Compile Include="Views\MainWindow\SaveWindowPositionBehavior.cs" />
+    <Compile Include="Views\MainWindow\SmartbarStartupPositionAdjuster.cs" />
+    <Compile Include="Views\MainWindow\SmartbarUpdateAvailableArgs.cs" />
+    <Compile Include="Views\MainWindow\PluginUpdatesAvailableArgs.cs" />
+    <Compile Include="Views\ModuleExplorer\ExportLoadedModulesCommand.cs" />
+    <Compile Include="Views\ModuleExplorer\Localization\ModuleExplorer.de.Designer.cs">
+      <DependentUpon>ModuleExplorer.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\ModuleExplorer\Localization\ModuleExplorer.Designer.cs">
+      <DependentUpon>ModuleExplorer.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\ModuleExplorer\ModuleExplorer.xaml.cs">
+      <DependentUpon>ModuleExplorer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModuleExplorer\ModuleExplorerViewModel.cs" />
+    <Compile Include="Views\ModuleExplorer\ModuleViewModel.cs" />
+    <Compile Include="Views\PluginManager\Loading\PluginLoaderResult.cs" />
+    <Compile Include="Views\PluginManager\Loading\PluginLoader.cs" />
+    <Compile Include="Views\PluginManager\Loading\PluginLoaderProgress.cs" />
+    <Compile Include="Views\PluginManager\Localization\PluginManager.de.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PluginManager.de.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PluginManager\Localization\PluginManager.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PluginManager.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PluginManager\PluginManager.xaml.cs">
+      <DependentUpon>PluginManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PluginManager\PluginManagerViewModel.cs" />
+    <Compile Include="Views\PluginManager\PluginPackageViewModel.cs" />
+    <Page Include="Controls\ApplicationsGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\EmptyApplicationButton\EmptyApplicationButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FaultedApplicationButton\FaultedApplicationButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\TrayPopup\TrayPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\About\About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainWindow\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\MainWindow\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\ApplicationButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EditSmartbarSettings\EditSmartbarSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Group\CreateGroup\CreateGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Group\RenameGroup\RenameGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ModuleExplorer\ModuleExplorer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PluginManager\PluginManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="packages.config" />
+    <AppDesigner Include="Properties\" />
+    <None Include="Smartbar.Debug.nuspec" />
+    <None Include="Smartbar.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Smartbar.Common.UserInterface\JanHafner.Smartbar.Common.UserInterface.csproj">
+      <Project>{553e1bac-c462-4150-babe-1fb112e4bf9e}</Project>
+      <Name>JanHafner.Smartbar.Common.UserInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Smartbar.Common\JanHafner.Smartbar.Common.csproj">
+      <Project>{FBA531B1-1342-4473-AFC2-849B0D3D51FC}</Project>
+      <Name>JanHafner.Smartbar.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Smartbar.Extensibility\JanHafner.Smartbar.Extensibility.csproj">
+      <Project>{C6BBD0DE-12FC-4CE8-AA02-C5B95BC31361}</Project>
+      <Name>JanHafner.Smartbar.Extensibility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Smartbar.Model\JanHafner.Smartbar.Model.csproj">
+      <Project>{816e59a4-a097-4abe-85d1-d5a4f78e05a3}</Project>
+      <Name>JanHafner.Smartbar.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Smartbar.ProcessApplication\JanHafner.Smartbar.ProcessApplication.csproj">
+      <Project>{9dd69d22-6a8b-436e-a17d-5a5405aeaaf5}</Project>
+      <Name>JanHafner.Smartbar.ProcessApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Smartbar.Services\JanHafner.Smartbar.Services.csproj">
+      <Project>{1105CC0E-3294-428B-81ED-CA37A6A3E235}</Project>
+      <Name>JanHafner.Smartbar.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Updater\Smartbar.Updater.Core\Smartbar.Updater.Core.csproj">
+      <Project>{183eee23-fd08-441c-b406-9cb1ac1234ac}</Project>
+      <Name>Smartbar.Updater.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\FaultedApplicationButton\Localization\FaultedApplicationButton.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FaultedApplicationButton.de.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FaultedApplicationButton\Localization\FaultedApplicationButton.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FaultedApplicationButton.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TrayPopup\Localization\TrayPopup.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TrayPopup.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TrayPopup\Localization\TrayPopup.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TrayPopup.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Dialogs.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Dialogs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\Dialogs.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Dialogs.de.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\UserMessages.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserMessages.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\UserMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>UserMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\About\Localization\About.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>About.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\About\Localization\About.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>About.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainWindow\Localization\MainWindow.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MainWindow.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainWindow\Localization\MainWindow.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MainWindow.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EditSmartbarSettings\Localization\EditSmartbarSettings.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EditSmartbarSettings.de.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EditSmartbarSettings\Localization\EditSmartbarSettings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EditSmartbarSettings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Group\CreateGroup\Localization\CreateGroup.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateGroup.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Group\CreateGroup\Localization\CreateGroup.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CreateGroup.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Group\GroupValidationMessages.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GroupValidationMessages.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Group\GroupValidationMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>GroupValidationMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Group\RenameGroup\Localization\RenameGroup.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RenameGroup.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Group\RenameGroup\Localization\RenameGroup.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>RenameGroup.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModuleExplorer\Localization\ModuleExplorer.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ModuleExplorer.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModuleExplorer\Localization\ModuleExplorer.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ModuleExplorer.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PluginManager\Localization\PluginManager.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PluginManager.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PluginManager\Localization\PluginManager.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PluginManager.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

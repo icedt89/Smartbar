@@ -1,0 +1,43 @@
+﻿<mahapps:MetroWindow x:Class="JanHafner.Smartbar.Views.Group.RenameGroup.RenameGroup" x:ClassModifier="internal"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls" 
+                     xmlns:localize="clr-namespace:JanHafner.Smartbar.Common.Localization;assembly=Smartbar.Common"
+                     xmlns:localization="clr-namespace:JanHafner.Smartbar.Views.Group.RenameGroup.Localization"
+                     xmlns:localizationCommon="clr-namespace:JanHafner.Smartbar.Common.UserInterface.Dialogs.Localization;assembly=Smartbar.Common.UserInterface"
+                     xmlns:renameGroup="clr-namespace:JanHafner.Smartbar.Views.Group.RenameGroup"
+                     xmlns:controls="clr-namespace:JanHafner.Smartbar.Common.UserInterface.Controls;assembly=Smartbar.Common.UserInterface"
+                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                     d:DataContext="{d:DesignInstance Type=renameGroup:RenameGroupViewModel}"
+                     mc:Ignorable="d"
+                     WindowStartupLocation="CenterScreen"
+                     SizeToContent="WidthAndHeight"
+                     MinWidth="380"
+                     MinHeight="182"
+                     Title="{localize:ResX RenameGroupDialogTitle, ResourceType=localization:RenameGroup}" Style="{StaticResource Window}"
+                     FocusManager.FocusedElement="{Binding ElementName=GroupName}">
+    <mahapps:MetroWindow.LeftWindowCommands>
+        <mahapps:WindowCommands>
+            <iconPacks:PackIconModern Kind="Edit" Foreground="{DynamicResource WindowBackgroundBrush}" />
+        </mahapps:WindowCommands>
+    </mahapps:MetroWindow.LeftWindowCommands>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="2" Style="{StaticResource DialogDescription}" Text="{Binding CurrentGroupName, StringFormat={localize:ResX RenameGroupDialogDescriptionText, ResourceType=localization:RenameGroup}}" />
+        <Label Margin="10, 20, 0, 20" Grid.Row="1" Grid.Column="0" Content="{localize:ResX RenameGroupNameLabelContent, ResourceType=localization:RenameGroup}" />
+        <TextBox Margin="0, 20, 10, 20" Grid.Row="1" Grid.Column="1" Name="GroupName" Text="{Binding NewGroupName, UpdateSourceTrigger=PropertyChanged}" />
+        <controls:DialogControlBar Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <Button IsDefault="true" Command="{Binding OKCommand}" Content="{localize:ResX OKButtonContent, ResourceType=localizationCommon:Common}" />
+        </controls:DialogControlBar>
+    </Grid>
+</mahapps:MetroWindow>

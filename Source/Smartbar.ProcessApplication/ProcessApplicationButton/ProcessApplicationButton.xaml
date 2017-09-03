@@ -1,0 +1,114 @@
+﻿<userInterface:ApplicationButton x:Class="JanHafner.Smartbar.ProcessApplication.ProcessApplicationButton.ProcessApplicationButton" x:ClassModifier="internal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:userInterface="clr-namespace:JanHafner.Smartbar.Extensibility.UserInterface;assembly=Smartbar.Extensibility"
+        xmlns:localize="clr-namespace:JanHafner.Smartbar.Common.Localization;assembly=Smartbar.Common"
+        xmlns:localization="clr-namespace:JanHafner.Smartbar.ProcessApplication.Localization"
+        xmlns:processApplicationButton="clr-namespace:JanHafner.Smartbar.ProcessApplication.ProcessApplicationButton"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:converter="clr-namespace:JanHafner.Smartbar.Common.UserInterface.Converter;assembly=Smartbar.Common.UserInterface"
+        mc:Ignorable="d"
+        d:DesignHeight="100" d:DesignWidth="100"
+        ToolTipService.IsEnabled="True"
+        AllowDrop="True"
+        ToolTipService.ToolTip="{Binding Name}"
+        ToolTipService.ShowOnDisabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+        d:DataContext="{d:DesignInstance Type=processApplicationButton:ProcessApplicationButtonViewModel}"
+        Command="{Binding ExecuteCommand}" SomethingIsWrong="{Binding SomethingIsWrong}" ApplicationId="{Binding Id, Mode=OneTime}">
+    <userInterface:ApplicationButton.Resources>
+        
+        <converter:ByteArrayToColorBrushConverter x:Key="ByteArrayToColorConverter" />
+        <converter:StretchSmallImageValueConverter x:Key="StretchSmallImageValueConverter" />
+
+        <processApplicationButton:ImageVisualizationDataTemplateSelector x:Key="DefaultImageVisualizationDataTemplateSelector">
+            <processApplicationButton:ImageVisualizationDataTemplateSelector.DefaultImageVisualizationHandlerDataTemplate>
+                <DataTemplate>
+                    <Image RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="UniformToFill" StretchDirection="{Binding StretchSmallImage, Converter={StaticResource StretchSmallImageValueConverter}}" Source="{Binding Image}" />
+                </DataTemplate>
+            </processApplicationButton:ImageVisualizationDataTemplateSelector.DefaultImageVisualizationHandlerDataTemplate>
+            <processApplicationButton:ImageVisualizationDataTemplateSelector.IconPackEntypoVisualizationDataTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <converter:EntypoPackIconValueConverter x:Key="EntypoPackIconValueConverter" />
+                    </DataTemplate.Resources>
+                    <iconPacks:PackIconEntypo HorizontalAlignment="Center" VerticalAlignment="Center" Padding="2" Height="{Binding Height, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Foreground="{Binding ApplicationImage.FillColor, Converter={StaticResource ByteArrayToColorConverter}}" Kind="{Binding ApplicationImage.IconPackKindKey, Converter={StaticResource EntypoPackIconValueConverter}}" />
+                </DataTemplate>
+            </processApplicationButton:ImageVisualizationDataTemplateSelector.IconPackEntypoVisualizationDataTemplate>
+            <processApplicationButton:ImageVisualizationDataTemplateSelector.IconPackFontAwesomeVisualizationDataTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <converter:FontAwesomePackIconValueConverter x:Key="FontAwesomePackIconValueConverter" />
+                    </DataTemplate.Resources>
+                    <iconPacks:PackIconFontAwesome HorizontalAlignment="Center" VerticalAlignment="Center" Padding="2" Height="{Binding Height, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Foreground="{Binding ApplicationImage.FillColor, Converter={StaticResource ByteArrayToColorConverter}}" Kind="{Binding ApplicationImage.IconPackKindKey, Converter={StaticResource FontAwesomePackIconValueConverter}}" />
+                </DataTemplate>
+            </processApplicationButton:ImageVisualizationDataTemplateSelector.IconPackFontAwesomeVisualizationDataTemplate>
+            <processApplicationButton:ImageVisualizationDataTemplateSelector.IconPackMaterialVisualizationDataTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <converter:MaterialPackIconValueConverter x:Key="MaterialPackIconValueConverter" />
+                    </DataTemplate.Resources>
+                    <iconPacks:PackIconMaterial HorizontalAlignment="Center" VerticalAlignment="Center" Padding="2" Height="{Binding Height, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Foreground="{Binding ApplicationImage.FillColor, Converter={StaticResource ByteArrayToColorConverter}}" Kind="{Binding ApplicationImage.IconPackKindKey, Converter={StaticResource MaterialPackIconValueConverter}}" />
+                </DataTemplate>
+            </processApplicationButton:ImageVisualizationDataTemplateSelector.IconPackMaterialVisualizationDataTemplate>
+            <processApplicationButton:ImageVisualizationDataTemplateSelector.IconPackModernVisualizationDataTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <converter:ModernPackIconValueConverter x:Key="ModernPackIconValueConverter" />
+                    </DataTemplate.Resources>
+                    <iconPacks:PackIconModern HorizontalAlignment="Center" VerticalAlignment="Center" Padding="2" Height="{Binding Height, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Foreground="{Binding ApplicationImage.FillColor, Converter={StaticResource ByteArrayToColorConverter}}" Kind="{Binding ApplicationImage.IconPackKindKey, Converter={StaticResource ModernPackIconValueConverter}}" />
+                </DataTemplate> 
+            </processApplicationButton:ImageVisualizationDataTemplateSelector.IconPackModernVisualizationDataTemplate>
+            <processApplicationButton:ImageVisualizationDataTemplateSelector.IconPackOcticonsVisualizationDataTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <converter:OcticonsPackIconValueConverter x:Key="OcticonsPackIconValueConverter" />
+                    </DataTemplate.Resources>
+                    <iconPacks:PackIconOcticons HorizontalAlignment="Center" VerticalAlignment="Center" Padding="2" Height="{Binding Height, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Foreground="{Binding ApplicationImage.FillColor, Converter={StaticResource ByteArrayToColorConverter}}" Kind="{Binding ApplicationImage.IconPackKindKey, Converter={StaticResource OcticonsPackIconValueConverter}}" />
+                </DataTemplate>
+            </processApplicationButton:ImageVisualizationDataTemplateSelector.IconPackOcticonsVisualizationDataTemplate>
+        </processApplicationButton:ImageVisualizationDataTemplateSelector>
+        
+    </userInterface:ApplicationButton.Resources>
+    <userInterface:ApplicationButton.ContextMenu>
+        <ContextMenu DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+            <MenuItem Header="{Binding Name}" IsEnabled="False" />
+            <Separator />
+            <MenuItem Header="{localize:ResX ProcessApplicationButtonPreferences, ResourceType=localization:ProcessApplication}" Command="{Binding ShowApplicationPreferencesCommand}">
+                <MenuItem.Icon>
+                    <iconPacks:PackIconModern Margin="6, 0, 0, 0" Kind="Settings" Foreground="{DynamicResource AccentColorBrush}" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="{localize:ResX ProcessApplicationButtonChangeDisplayImage, ResourceType=localization:ProcessApplication}" ItemContainerStyle="{StaticResource DynamicUICommandMenuItem}" ItemsSource="{Binding SelectApplicationVisualizationCommands}">
+                <MenuItem.Icon>
+                    <iconPacks:PackIconModern Margin="6, 0, 0, 0" Kind="ImageSelect" Foreground="{DynamicResource AccentColorBrush}" />
+                </MenuItem.Icon>
+            </MenuItem>
+            <Separator />
+            <MenuItem Header="{localize:ResX ProcessApplicationButtonDelete, ResourceType=localization:ProcessApplication}" Command="{Binding DeleteApplicationCommand}">
+                <MenuItem.Icon>
+                    <iconPacks:PackIconModern Margin="6, 0, 0, 0" Kind="Delete" Foreground="{DynamicResource AccentColorBrush}" />
+                </MenuItem.Icon>
+            </MenuItem>
+        </ContextMenu>
+    </userInterface:ApplicationButton.ContextMenu>
+    <ContentPresenter Content="{Binding}" ContentTemplateSelector="{StaticResource DefaultImageVisualizationDataTemplateSelector}" />
+    <!--<Image RenderOptions.BitmapScalingMode="HighQuality" Stretch="UniformToFill" StretchDirection="DownOnly" Source="{Binding Image}" />-->
+    <userInterface:ApplicationButton.PreviewTemplate>
+        <DataTemplate>
+            <iconPacks:PackIconModern Kind="Add" Foreground="{StaticResource AccentColorBrush4}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="{Binding Height, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" />
+        </DataTemplate>
+    </userInterface:ApplicationButton.PreviewTemplate>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseEnter">
+            <i:InvokeCommandAction CommandParameter="{Binding}"
+                                                            Command="{Binding MouseEnterApplicationButtonCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="MouseLeave">
+            <i:InvokeCommandAction CommandParameter="{Binding}"
+                                                            Command="{Binding MouseLeaveApplicationButtonCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+</userInterface:ApplicationButton>

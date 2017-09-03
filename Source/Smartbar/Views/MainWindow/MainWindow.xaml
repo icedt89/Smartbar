@@ -1,0 +1,131 @@
+﻿<mahapps:MetroWindow x:Class="JanHafner.Smartbar.Views.MainWindow.MainWindow" x:ClassModifier="internal"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                     xmlns:controls="clr-namespace:JanHafner.Smartbar.Controls"
+                     xmlns:mainWindow="clr-namespace:JanHafner.Smartbar.Views.MainWindow"
+                     xmlns:localize="clr-namespace:JanHafner.Smartbar.Common.Localization;assembly=Smartbar.Common"
+                     xmlns:localization="clr-namespace:JanHafner.Smartbar.Views.MainWindow.Localization"
+                     xmlns:common="clr-namespace:JanHafner.Smartbar.Common;assembly=Smartbar.Common"
+                     xmlns:customControls="clr-namespace:JanHafner.Smartbar.Common.UserInterface.Controls;assembly=Smartbar.Common.UserInterface"
+                     xmlns:behaviours="http://metro.mahapps.com/winfx/xaml/shared"
+                     xmlns:tb="http://www.hardcodet.net/taskbar"
+                     xmlns:userInterface="clr-namespace:JanHafner.Smartbar.Common.UserInterface;assembly=Smartbar.Common.UserInterface"
+                     xmlns:trayPopup="clr-namespace:JanHafner.Smartbar.Controls.TrayPopup"
+                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                     xmlns:behavior="clr-namespace:JanHafner.Toolkit.Wpf.Behavior;assembly=JanHafner.Toolkit.Wpf"
+                     mc:Ignorable="d"
+                     WindowStartupLocation="Manual"
+                     Top="{Binding InitialPosition.Y, Mode=OneTime}"
+                     Left="{Binding InitialPosition.X, Mode=OneTime}"
+                     Name="Window"
+                     d:DataContext="{d:DesignInstance Type=mainWindow:MainWindowViewModel}"
+                     Title="Smartbar" d:DesignHeight="200" d:DesignWidth="525"
+                     SizeToContent="WidthAndHeight"
+                     ShowMaxRestoreButton="False" ShowInTaskbar="true" Style="{StaticResource Window}" userInterface:FrameworkElement.TryDisposeDataContext="True">
+    <i:Interaction.Behaviors>
+        <behaviours:BorderlessWindowBehavior />
+        <mainWindow:SaveWindowPositionBehavior />
+        <behaviours:GlowWindowBehavior />
+        <behavior:StickyWindowBehavior Enabled="{Binding SnapOnScreenBorders}" SnapOnOffset="{Binding SnapOnScreenBordersOffset}" />
+        <behavior:PinnedWindowBehavior Enabled="{Binding IsPinned}" />
+        <behavior:InterceptHotKeyWindowMessageBehavior Enabled="True" HotKeyManager="{Binding WpfHotKeyManager, Mode=OneTime}" />
+    </i:Interaction.Behaviors>
+    <mahapps:MetroWindow.LeftWindowCommands>
+        <mahapps:WindowCommands>
+            <iconPacks:PackIconModern Kind="RocketRotated45" Foreground="{DynamicResource WindowBackgroundBrush}" />
+        </mahapps:WindowCommands>
+    </mahapps:MetroWindow.LeftWindowCommands>
+    <mahapps:MetroWindow.RightWindowCommands>
+        <mahapps:WindowCommands HorizontalAlignment="Left">
+            <Button Command="{Binding CreateGroupCommand}">
+                <iconPacks:PackIconModern Kind="Add" Foreground="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+            </Button>
+            <Button Command="{Binding EditSmartbarSettingsCommand}">
+                <iconPacks:PackIconModern Kind="Settings" Foreground="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+            </Button>
+            <Button Command="{Binding ShowPluginManagementCommand}">
+                <iconPacks:PackIconModern Kind="Brick" Foreground="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}" />
+            </Button>
+        </mahapps:WindowCommands>
+    </mahapps:MetroWindow.RightWindowCommands>
+    <StackPanel>
+        <TabControl ItemsSource="{Binding Groups}" Background="Transparent" SelectedItem="{Binding SelectedGroup}" Padding="2, 0, 2, 2">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Visibility="{Binding DataContext.ShowGroupHeader, Converter={StaticResource BooleanToVisibilityConverter}, ElementName=Window}" Orientation="Horizontal" Height="26">
+                        <Button BorderThickness="1" ToolTip="{localize:ResX MainWindowShiftGroupLeftHeader, ResourceType=localization:MainWindow}" Margin="0, 0, 4, 0" Visibility="{Binding CanShiftLeft, Converter={StaticResource BooleanToVisibilityConverter}}" Command="{Binding ShiftLeftCommand}" HorizontalAlignment="Center" Width="20" Height="20" Style="{DynamicResource MetroCircleButtonStyle}">
+                            <iconPacks:PackIconModern Width="6" Height="6" Kind="ChevronLeft" Foreground="{Binding ElementName=TabItemHeader, Path=Foreground}" />
+                        </Button>
+                        <customControls:ToggleTextBox ToolTipWhileEditing="{localize:ResX GroupNameTooltipWhileEditing, ResourceType=localization:MainWindow}" AllowDrop="True" EditedValueAcceptedCommand="{Binding DirectlyEditedGroupNameAcceptedCommand}" Name="TabItemHeader" Text="{Binding Name}" EditingEnabled="{Binding DataContext.DirectEditOfGroupHeader, ElementName=Window}">
+                            <customControls:ToggleTextBox.TextBlockStyleOverride>
+                                <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                    <Setter Property="FontSize" Value="18" />
+                                </Style>
+                            </customControls:ToggleTextBox.TextBlockStyleOverride>
+                            <i:Interaction.Behaviors>
+                                <common:EventToCommandBehavior Command="{Binding DragEnterCommand}" Event="DragEnter" />
+                            </i:Interaction.Behaviors>
+                            <customControls:ToggleTextBox.InputBindings>
+                                <MouseBinding MouseAction="MiddleClick" Command="{Binding DeleteWithMiddleMouseButtonCommand}" />
+                            </customControls:ToggleTextBox.InputBindings>
+                            <customControls:ToggleTextBox.ContextMenu>
+                                <ContextMenu DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+                                    <MenuItem Header="{Binding Path=Name}" IsEnabled="False" />
+                                    <Separator />
+                                    <MenuItem Header="{localize:ResX MainWindowRenameGroupHeader, ResourceType=localization:MainWindow}" Command="{Binding RenameCommand}">
+                                        <MenuItem.Icon>
+                                            <iconPacks:PackIconModern Margin="6, 0, 0, 0" Kind="Edit" Foreground="{DynamicResource AccentColorBrush}" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <Separator />
+                                    <MenuItem Header="{localize:ResX MainWindowClearGroupHeader, ResourceType=localization:MainWindow}" Command="{Binding ClearCommand}">
+                                        <MenuItem.Icon>
+                                            <iconPacks:PackIconModern Margin="6, 0, 0, 0" Kind="SymbolBracket" Foreground="{DynamicResource AccentColorBrush}" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="{localize:ResX MainWindowDeleteGroupHeader, ResourceType=localization:MainWindow}" Command="{Binding DeleteCommand}">
+                                        <MenuItem.Icon>
+                                            <iconPacks:PackIconModern Margin="6, 0, 0, 0" Kind="Delete" Foreground="{DynamicResource AccentColorBrush}" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </customControls:ToggleTextBox.ContextMenu>
+                        </customControls:ToggleTextBox>
+                        <Button BorderThickness="1" ToolTip="{localize:ResX MainWindowShiftGroupRightHeader, ResourceType=localization:MainWindow}" Visibility="{Binding CanShiftRight, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="4, 0, 0, 0" Command="{Binding ShiftRightCommand}" HorizontalAlignment="Center" Width="20" Height="20" Style="{DynamicResource MetroCircleButtonStyle}">
+                            <iconPacks:PackIconModern Width="6" Height="6" Kind="ChevronRight" Foreground="{Binding ElementName=TabItemHeader, Path=Foreground}" />
+                        </Button>
+                        <Button BorderThickness="1" ToolTip="{localize:ResX MainWindowDeleteGroupHeader, ResourceType=localization:MainWindow}" Visibility="{Binding CanBeDeleted, Converter={StaticResource BooleanToVisibilityConverter}}" Command="{Binding DeleteCommand}" HorizontalAlignment="Center" Width="20" Height="20" Style="{DynamicResource MetroCircleButtonStyle}">
+                            <iconPacks:PackIconModern Width="6" Height="6" Kind="Close" Foreground="{Binding ElementName=TabItemHeader, Path=Foreground}" />
+                        </Button>
+                    </StackPanel>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <controls:ApplicationsGrid Background="Transparent" AllowDrop="True"
+                        Rows="{Binding DataContext.Rows, ElementName=Window}" 
+                        Columns="{Binding DataContext.Columns, ElementName=Window}" 
+                        GridCellContentSize="{Binding DataContext.GridCellContentSize, ElementName=Window}" 
+                        GridCellSpacing="{Binding DataContext.GridCellSpacing, ElementName=Window}" />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+        <StatusBar Height="26" Margin="0,-1,0,0"
+                   Visibility="{Binding ShowStatusbar, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <StatusBarItem Content="{Binding HoveredApplicationName}" />
+        </StatusBar>
+        <tb:TaskbarIcon Name="TaskbarIcon"  
+                        Visibility="Visible"
+                    PopupActivation="LeftClick">
+            <tb:TaskbarIcon.TrayPopup>
+                <Border Background="White" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="2" CornerRadius="2">
+                    <trayPopup:SmartbarTrayPopup />
+                </Border>
+            </tb:TaskbarIcon.TrayPopup>
+        </tb:TaskbarIcon>
+    </StackPanel>
+</mahapps:MetroWindow>

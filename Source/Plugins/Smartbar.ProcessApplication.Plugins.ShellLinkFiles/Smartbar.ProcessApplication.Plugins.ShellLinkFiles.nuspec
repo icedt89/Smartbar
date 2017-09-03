@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Smartbar.ProcessApplication.Plugins.ShellLinkFiles</id>
+        <version>1.1.4.1</version>
+        <authors>Jan Hafner</authors>
+        <owners>Jan Hafner</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Handles *.lnk files on Drop.</description>
+        <copyright>Copyright © Jan Hafner</copyright>
+        <tags>smartbar plugin</tags>
+    </metadata>
+    <files>
+        <file src="bin\Release\de\JanHafner.Smartbar.ProcessApplication.Plugins.ShellLinkFiles.resources.dll" target="lib\net461\de\JanHafner.Smartbar.ProcessApplication.Plugins.ShellLinkFiles.resources.dll" />
+        <file src="bin\Release\JanHafner.Smartbar.ProcessApplication.Plugins.ShellLinkFiles.dll" target="lib\net461\JanHafner.Smartbar.ProcessApplication.Plugins.ShellLinkFiles.dll" />
+        <file src="bin\Release\Microsoft.WindowsAPICodePack.dll" target="lib\net461\Microsoft.WindowsAPICodePack.dll" />
+        <file src="bin\Release\Microsoft.WindowsAPICodePack.Shell.dll" target="lib\net461\Microsoft.WindowsAPICodePack.Shell.dll" />
+    </files>
+</package>

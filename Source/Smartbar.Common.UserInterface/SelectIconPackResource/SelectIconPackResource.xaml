@@ -1,0 +1,156 @@
+﻿<mahapps:MetroWindow x:Class="JanHafner.Smartbar.Common.UserInterface.SelectIconPackResource.SelectIconPackResource"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                     xmlns:localize="clr-namespace:JanHafner.Smartbar.Common.Localization;assembly=Smartbar.Common"
+                     xmlns:localization="clr-namespace:JanHafner.Smartbar.Common.UserInterface.SelectIconPackResource.Localization"
+                     xmlns:localizationCommon="clr-namespace:JanHafner.Smartbar.Common.UserInterface.Dialogs.Localization"
+                     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                     xmlns:controls="clr-namespace:JanHafner.Smartbar.Common.UserInterface.Controls"
+                     xmlns:userInterface="clr-namespace:JanHafner.Smartbar.Common.UserInterface"
+                     xmlns:selectIconPackResource="clr-namespace:JanHafner.Smartbar.Common.UserInterface.SelectIconPackResource"
+                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                     xmlns:converter="clr-namespace:JanHafner.Smartbar.Common.UserInterface.Converter"
+                     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                     xmlns:common="clr-namespace:JanHafner.Smartbar.Common;assembly=Smartbar.Common"
+                     WindowStartupLocation="CenterScreen"
+                     d:DataContext="{d:DesignInstance Type=selectIconPackResource:SelectIconPackResourceViewModel}"
+                     mc:Ignorable="d"
+                     Title="{localize:ResX SelectIconPackResourceDialogTitle, ResourceType=localization:SelectIconPackResource}"
+                     Height="350" SizeToContent="Manual" Width="500" Name="Window" ResizeMode="CanResizeWithGrip"
+                     FocusManager.FocusedElement="{Binding ElementName=SelectIconPackType}"
+                     Style="{StaticResource Window}" userInterface:FrameworkElement.TryDisposeDataContext="True">
+    <mahapps:MetroWindow.Resources>
+        <userInterface:ColorToBrushConverter x:Key="ColorToBrushConverter" />
+
+        <selectIconPackResource:IconPackDataTemplateSelector x:Key="IconPackDataTemplateSelector">
+            <selectIconPackResource:IconPackDataTemplateSelector.EntypoDataTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <converter:EntypoPackIconValueConverter x:Key="EntypoPackIconValueConverter" />
+                    </DataTemplate.Resources>
+                    <iconPacks:PackIconEntypo HorizontalAlignment="Center"
+                                              Foreground="{Binding DataContext.FillColor, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}, ElementName=Window}"
+                                              Width="32" Height="32"
+                                              Kind="{Binding IconPackKindKey, Mode=OneWay, Converter={StaticResource EntypoPackIconValueConverter}}" />
+                </DataTemplate>
+            </selectIconPackResource:IconPackDataTemplateSelector.EntypoDataTemplate>
+            <selectIconPackResource:IconPackDataTemplateSelector.FontAwesomeDatatemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <converter:FontAwesomePackIconValueConverter x:Key="FontAwesomePackIconValueConverter" />
+                    </DataTemplate.Resources>
+                    <iconPacks:PackIconFontAwesome HorizontalAlignment="Center"
+                                                   Foreground="{Binding DataContext.FillColor, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}, ElementName=Window}"
+                                                   Width="32" Height="32"
+                                                   Kind="{Binding IconPackKindKey, Mode=OneWay, Converter={StaticResource FontAwesomePackIconValueConverter}}" />
+                </DataTemplate>
+            </selectIconPackResource:IconPackDataTemplateSelector.FontAwesomeDatatemplate>
+            <selectIconPackResource:IconPackDataTemplateSelector.MaterialDataTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <converter:MaterialPackIconValueConverter x:Key="MaterialPackIconValueConverter" />
+                    </DataTemplate.Resources>
+                    <iconPacks:PackIconMaterial HorizontalAlignment="Center"
+                                                Foreground="{Binding DataContext.FillColor, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}, ElementName=Window}"
+                                                Width="32" Height="32"
+                                                Kind="{Binding IconPackKindKey, Mode=OneWay, Converter={StaticResource MaterialPackIconValueConverter}}" />
+                </DataTemplate>
+            </selectIconPackResource:IconPackDataTemplateSelector.MaterialDataTemplate>
+            <selectIconPackResource:IconPackDataTemplateSelector.ModernDataTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <converter:ModernPackIconValueConverter x:Key="ModernPackIconValueConverter" />
+                    </DataTemplate.Resources>
+                    <iconPacks:PackIconModern HorizontalAlignment="Center"
+                                              Foreground="{Binding DataContext.FillColor, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}, ElementName=Window}"
+                                              Width="32" Height="32"
+                                              Kind="{Binding IconPackKindKey, Mode=OneWay, Converter={StaticResource ModernPackIconValueConverter}}" />
+                </DataTemplate>
+            </selectIconPackResource:IconPackDataTemplateSelector.ModernDataTemplate>
+            <selectIconPackResource:IconPackDataTemplateSelector.OcticonsAwesomeDatatemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <converter:OcticonsPackIconValueConverter x:Key="OcticonsPackIconValueConverter" />
+                    </DataTemplate.Resources>
+                    <iconPacks:PackIconOcticons HorizontalAlignment="Center"
+                                              Foreground="{Binding DataContext.FillColor, Mode=OneWay, Converter={StaticResource ColorToBrushConverter}, ElementName=Window}"
+                                              Width="32" Height="32"
+                                              Kind="{Binding IconPackKindKey, Mode=OneWay, Converter={StaticResource OcticonsPackIconValueConverter}}" />
+                </DataTemplate>
+            </selectIconPackResource:IconPackDataTemplateSelector.OcticonsAwesomeDatatemplate>
+        </selectIconPackResource:IconPackDataTemplateSelector>
+
+    </mahapps:MetroWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource DialogDescription}"
+                   Text="{localize:ResX SelectIconPackResourceDialogDescriptionText, ResourceType=localization:SelectIconPackResource}" />
+        <Label Visibility="{Binding LoadAborted, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="1"
+               Style="{StaticResource WarningDialogDescription}"
+               Content="{localize:ResX LoadAbortedDialogMessage, ResourceType=localization:SelectIconPackResource}" />
+        <Grid Margin="10, 0, 10, 0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <Label Margin="0, 0, 6, 0" Grid.Row="0" Grid.Column="0"
+                   Content="{localize:ResX SelectIconPackResourceIconPackLabel, ResourceType=localization:SelectIconPackResource}" />
+            <ComboBox Name="SelectIconPackType"
+                      IsEnabled="{Binding IsRefreshingImages, Converter={StaticResource NegatingBooleanConverter}}"
+                      SelectedValue="{Binding IconPack}" ItemsSource="{Binding SelectableIconPacks}" Grid.Row="0"
+                      DisplayMemberPath="DisplayName" Grid.Column="1" />
+            <Label Margin="6, 0, 6, 0" Grid.Row="0" Grid.Column="2"
+                   Content="{localize:ResX SelectIconPackResourceColorLabel, ResourceType=localization:SelectIconPackResource}" />
+            <xctk:ColorPicker Grid.Column="3"
+                              IsEnabled="{Binding IsRefreshingImages, Converter={StaticResource NegatingBooleanConverter}}"
+                              SelectedColor="{Binding FillColor, Mode=OneWay}">
+                <i:Interaction.Behaviors>
+                    <common:EventToCommandBehavior Command="{Binding SelectColorDialogClosed}" Event="Closed" />
+                </i:Interaction.Behaviors>
+            </xctk:ColorPicker>
+        </Grid>
+        <mahapps:MetroProgressBar Foreground="{StaticResource AccentColorBrush}" Visibility="{Binding IsRefreshingImages, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="3" Maximum="{Binding MaximalVisualizableImages, Mode=OneWay}" Value="{Binding CurrentVisualizationProgress, Mode=OneWay}" />
+        <ListBox userInterface:ScrollSelectionIntoView.Enabled="True"
+                 IsEnabled="{Binding IsRefreshingImages, Converter={StaticResource NegatingBooleanConverter}}"
+                 BorderThickness="1" BorderBrush="{DynamicResource AccentColorBrush4}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="4" Margin="10, 10, 10, 0"
+                 SelectedItem="{Binding Resource}" ItemsSource="{Binding Resources}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" BorderBrush="{DynamicResource AccentColorBrush4}" Padding="4"
+                            Margin="4">
+                        <ContentPresenter ContentTemplateSelector="{StaticResource IconPackDataTemplateSelector}" />
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <mahapps:ProgressRing Grid.Row="4" IsActive="{Binding IsRefreshingImages, Mode=OneWay}" Width="100"
+                              Height="100" />
+        <controls:DialogControlBar Grid.Row="5">
+            <Button Margin="10, 0, 0, 0" IsCancel="True" Command="{Binding CancelCommand}"
+                    Content="{localize:ResX CancelButtonContent, ResourceType=localizationCommon:Common}" />
+            <Button Margin="10, 0, 0, 0" IsDefault="True" Command="{Binding OKCommand}"
+                    Content="{localize:ResX SelectIconPackResourceDialogSelectButton, ResourceType=localization:SelectIconPackResource}" />
+        </controls:DialogControlBar>
+    </Grid>
+</mahapps:MetroWindow>

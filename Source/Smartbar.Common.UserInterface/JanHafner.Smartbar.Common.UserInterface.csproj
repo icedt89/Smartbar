@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{553E1BAC-C462-4150-BABE-1FB112E4BF9E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JanHafner.Smartbar.Common.UserInterface</RootNamespace>
+    <AssemblyName>Smartbar.Common.UserInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JanHafner.Toolkit.Common, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Binaries\JanHafner.Toolkit.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="JanHafner.Toolkit.Windows">
+      <HintPath>..\Binaries\JanHafner.Toolkit.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.4.3.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro.IconPacks, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.IconPacks.1.7.1\lib\net46\MahApps.Metro.IconPacks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.6.2.1\lib\net45\Prism.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Annotations\BaseTypeRequiredAttribute.cs">
+      <Link>Annotations\BaseTypeRequiredAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\CanBeNullAttribute.cs">
+      <Link>Annotations\CanBeNullAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\CollectionAccessAttribute.cs">
+      <Link>Annotations\CollectionAccessAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\CollectionAccessType.cs">
+      <Link>Annotations\CollectionAccessType.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\ImplicitUseKindFlags.cs">
+      <Link>Annotations\ImplicitUseKindFlags.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\ImplicitUseTargetFlags.cs">
+      <Link>Annotations\ImplicitUseTargetFlags.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\InstantHandleAttribute.cs">
+      <Link>Annotations\InstantHandleAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\InvokerParameterNameAttribute.cs">
+      <Link>Annotations\InvokerParameterNameAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\ItemCanBeNullAttribute.cs">
+      <Link>Annotations\ItemCanBeNullAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\ItemNotNullAttribute.cs">
+      <Link>Annotations\ItemNotNullAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\LinqTunnelAttribute.cs">
+      <Link>Annotations\LinqTunnelAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\LocalizationRequiredAttribute.cs">
+      <Link>Annotations\LocalizationRequiredAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\MeansImplicitUseAttribute.cs">
+      <Link>Annotations\MeansImplicitUseAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\NotifyPropertyChangedInvocatorAttribute.cs">
+      <Link>Annotations\NotifyPropertyChangedInvocatorAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\NotNullAttribute.cs">
+      <Link>Annotations\NotNullAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\PublicAPIAttribute.cs">
+      <Link>Annotations\PublicAPIAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\PureAttribute.cs">
+      <Link>Annotations\PureAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\RegexPatternAttribute.cs">
+      <Link>Annotations\RegexPatternAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\StringFormatMethodAttribute.cs">
+      <Link>Annotations\StringFormatMethodAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\UsedImplicitlyAttribute.cs">
+      <Link>Annotations\UsedImplicitlyAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Annotations\ValueProviderAttribute.cs">
+      <Link>Annotations\ValueProviderAttribute.cs</Link>
+    </Compile>
+    <Compile Include="ApplicationViewModel.cs" />
+    <Compile Include="BuiltIn\IconPackVisualizationUICommand.cs" />
+    <Compile Include="BuiltIn\IconPackVisualizationUICommandProvider.cs" />
+    <Compile Include="Converter\ByteArrayToColorBrushConverter.cs" />
+    <Compile Include="Converter\OcticonsPackIconValueConverter.cs" />
+    <Compile Include="Converter\StretchSmallImageValueConverter.cs" />
+    <Compile Include="Dialogs\AbortCloseException.cs" />
+    <Compile Include="Dialogs\CommonCloseCommand.cs" />
+    <Compile Include="ScrollSelectionIntoView.cs" />
+    <Compile Include="NegatingBooleanConverter.cs" />
+    <Compile Include="BooleanToInvisibilityConverter.cs" />
+    <Compile Include="BuiltIn\IconImageVisualizationUICommand.cs" />
+    <Compile Include="BuiltIn\IconImageVisualizationUICommandProvider.cs" />
+    <Compile Include="BuiltIn\ImageFileVisualizationUICommand.cs" />
+    <Compile Include="BuiltIn\ImageFileVisualizationUICommandProvider.cs" />
+    <Compile Include="Controls\DialogControlBar.xaml.cs">
+      <DependentUpon>DialogControlBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InfoIcon.xaml.cs">
+      <DependentUpon>InfoIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToggleTextBox.xaml.cs">
+      <DependentUpon>ToggleTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CommonCancelCommand.cs" />
+    <Compile Include="Dialogs\CommonNoCommand.cs" />
+    <Compile Include="Dialogs\CommonOKCommand.cs" />
+    <Compile Include="Dialogs\CommonYesCommand.cs" />
+    <Compile Include="Dialogs\DialogExtensions.cs" />
+    <Compile Include="Dialogs\FileDialogModel.cs" />
+    <Compile Include="Dialogs\FolderBrowserDialogModel.cs" />
+    <Compile Include="Dialogs\Localization\Common.de.Designer.cs">
+      <DependentUpon>Common.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Dialogs\Localization\Common.Designer.cs">
+      <DependentUpon>Common.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Dialogs\OpenFileDialogModel.cs" />
+    <Compile Include="Dialogs\SaveFileDialogModel.cs" />
+    <Compile Include="Dialogs\SimpleDialog.xaml.cs">
+      <DependentUpon>SimpleDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SimpleDialogViewModel.cs" />
+    <Compile Include="DragDropHelper.cs" />
+    <Compile Include="EnumMatchToBooleanConverter.cs" />
+    <Compile Include="Localization\MenuItems.de.Designer.cs">
+      <DependentUpon>MenuItems.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\MenuItems1.Designer.cs">
+      <DependentUpon>MenuItems.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\ExceptionMessages.Designer.cs">
+      <DependentUpon>ExceptionMessages.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="RunOnDispatcherProgress.cs" />
+    <Compile Include="Converter\EntypoPackIconValueConverter.cs" />
+    <Compile Include="Converter\EnumToPackIconKindValueConverter.cs" />
+    <Compile Include="Converter\FontAwesomePackIconValueConverter.cs" />
+    <Compile Include="SelectIconPackResource\IconPackDataTemplateSelector.cs" />
+    <Compile Include="Converter\MaterialPackIconValueConverter.cs" />
+    <Compile Include="Converter\ModernPackIconValueConverter.cs" />
+    <Compile Include="SelectIconPackResource\SelectableIconPacks\ISelectableIconPack.cs" />
+    <Compile Include="SelectIconPackResource\SelectableIconPacks\ISelectableIconPacksProvider.cs" />
+    <Compile Include="SelectIconPackResource\SelectableIconPacks\SelectableIconPack.cs" />
+    <Compile Include="SelectIconPackResource\SelectableIconPacks\SelectableIconPackEntypo.cs" />
+    <Compile Include="SelectIconPackResource\SelectableIconPacks\SelectableIconPackFontAwesome.cs" />
+    <Compile Include="SelectIconPackResource\SelectableIconPacks\SelectableIconPackMaterial.cs" />
+    <Compile Include="SelectIconPackResource\SelectableIconPacks\SelectableIconPackOcticons.cs" />
+    <Compile Include="SelectIconPackResource\SelectableIconPacks\SelectableIconPackModern.cs" />
+    <Compile Include="SelectIconPackResource\SelectableIconPacks\SelectableIconPacksProvider.cs" />
+    <Compile Include="SelectNativeResource\Loading\IconImageSourceBag.cs" />
+    <Compile Include="SelectNativeResource\Loading\NativeResourcesLoader.cs" />
+    <Compile Include="SelectNativeResource\Loading\NativeResourcesLoaderProgress.cs" />
+    <Compile Include="SelectNativeResource\Localization\WellKnownIconContainers.de.Designer.cs">
+      <DependentUpon>WellKnownIconContainers.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SelectNativeResource\Localization\WellKnownIconContainers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WellKnownIconContainers.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectNativeResource\WellKnown\AccessibilitycplWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\DdoresWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\DmdskresWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\DsuiextWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\ExplorerWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\GameuxWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\IWellKnownIconLibraryUICommandProvider.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\WellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\IeframeWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\ImageresWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\IWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\MmresWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\MstscaxWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\NetcenterWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\NetshellWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\NetworkexplorerWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\PniduiWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\SensorscplWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\SetupapiWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\Shell32WellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\WellKnownIconLibraryUICommandProvider.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\WellKnownIconLibraryUICommand.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\WmplocWellKnownIconLibrary.cs" />
+    <Compile Include="SelectNativeResource\WellKnown\WpdshextWellKnownIconLibrary.cs" />
+    <Compile Include="ColorToBrushConverter.cs" />
+    <Compile Include="SelectIconPackResource\Loading\IconPackResourceBag.cs" />
+    <Compile Include="SelectIconPackResource\Loading\SelectIconPackResourcesLoader.cs" />
+    <Compile Include="SelectIconPackResource\Loading\SelectIconPackResourcesLoaderProgress.cs" />
+    <Compile Include="SelectIconPackResource\Localization\SelectIconPackResource.de.Designer.cs">
+      <DependentUpon>SelectIconPackResource.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SelectIconPackResource\Localization\SelectIconPackResource.Designer.cs">
+      <DependentUpon>SelectIconPackResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SelectIconPackResource\SelectIconPackResource.xaml.cs">
+      <DependentUpon>SelectIconPackResource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectIconPackResource\SelectIconPackResourceViewModel.cs" />
+    <Compile Include="SelectNativeResource\Localization\SelectNativeResource.de.Designer.cs">
+      <DependentUpon>SelectNativeResource.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SelectNativeResource\Localization\SelectNativeResource.Designer.cs">
+      <DependentUpon>SelectNativeResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SelectNativeResource\SelectNativeResource.xaml.cs">
+      <DependentUpon>SelectNativeResource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectNativeResource\SelectNativeResourceValidationMessages.de.Designer.cs">
+      <DependentUpon>SelectNativeResourceValidationMessages.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SelectNativeResource\SelectNativeResourceValidationMessages.Designer.cs">
+      <DependentUpon>SelectNativeResourceValidationMessages.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SelectNativeResource\SelectNativeResourceViewModel.cs" />
+    <Compile Include="SelectNativeResource\SelectNativeResourceViewModelSelectFileCommand.cs" />
+    <Compile Include="SetProcessAffinityMask\Localization\SetProcessAffinityMask.de.Designer.cs">
+      <DependentUpon>SetProcessAffinityMask.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SetProcessAffinityMask\Localization\SetProcessAffinityMask.Designer.cs">
+      <DependentUpon>SetProcessAffinityMask.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SetProcessAffinityMask\SetProcessAffinityMask.xaml.cs">
+      <DependentUpon>SetProcessAffinityMask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SetProcessAffinityMask\SetProcessAffinityMaskViewModel.cs" />
+    <Compile Include="FrameworkElement.cs" />
+    <Compile Include="SystemIconConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\DialogControlBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\InfoIcon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ToggleTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\SimpleDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\CommonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SelectIconPackResource\SelectIconPackResource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SelectNativeResource\SelectNativeResource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SetProcessAffinityMask\SetProcessAffinityMask.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Smartbar.Common\JanHafner.Smartbar.Common.csproj">
+      <Project>{FBA531B1-1342-4473-AFC2-849B0D3D51FC}</Project>
+      <Name>JanHafner.Smartbar.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Smartbar.Extensibility\JanHafner.Smartbar.Extensibility.csproj">
+      <Project>{C6BBD0DE-12FC-4CE8-AA02-C5B95BC31361}</Project>
+      <Name>JanHafner.Smartbar.Extensibility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Smartbar.Model\JanHafner.Smartbar.Model.csproj">
+      <Project>{816e59a4-a097-4abe-85d1-d5a4f78e05a3}</Project>
+      <Name>JanHafner.Smartbar.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Smartbar.Services\JanHafner.Smartbar.Services.csproj">
+      <Project>{1105CC0E-3294-428B-81ED-CA37A6A3E235}</Project>
+      <Name>JanHafner.Smartbar.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\Localization\Common.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Common.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Localization\Common.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Common.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\MenuItems.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuItems.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\MenuItems.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuItems1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\ExceptionMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectNativeResource\Localization\WellKnownIconContainers.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WellKnownIconContainers.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectNativeResource\Localization\WellKnownIconContainers.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WellKnownIconContainers.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectIconPackResource\Localization\SelectIconPackResource.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SelectIconPackResource.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectIconPackResource\Localization\SelectIconPackResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SelectIconPackResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectNativeResource\Localization\SelectNativeResource.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SelectNativeResource.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectNativeResource\Localization\SelectNativeResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SelectNativeResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectNativeResource\SelectNativeResourceValidationMessages.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SelectNativeResourceValidationMessages.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectNativeResource\SelectNativeResourceValidationMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SelectNativeResourceValidationMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetProcessAffinityMask\Localization\SetProcessAffinityMask.de.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SetProcessAffinityMask.de.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetProcessAffinityMask\Localization\SetProcessAffinityMask.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SetProcessAffinityMask.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

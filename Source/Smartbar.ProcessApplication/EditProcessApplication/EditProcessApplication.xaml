@@ -1,0 +1,201 @@
+﻿<mahapps:MetroWindow x:Class="JanHafner.Smartbar.ProcessApplication.EditProcessApplication.EditProcessApplication" x:ClassModifier="internal"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+                     xmlns:localize="clr-namespace:JanHafner.Smartbar.Common.Localization;assembly=Smartbar.Common"
+                     xmlns:localization="clr-namespace:JanHafner.Smartbar.ProcessApplication.EditProcessApplication.Localization"
+                     xmlns:localizationCommon="clr-namespace:JanHafner.Smartbar.Common.UserInterface.Dialogs.Localization;assembly=Smartbar.Common.UserInterface"
+                     xmlns:editProcessApplication="clr-namespace:JanHafner.Smartbar.ProcessApplication.EditProcessApplication"
+                     xmlns:controls="clr-namespace:JanHafner.Smartbar.Common.UserInterface.Controls;assembly=Smartbar.Common.UserInterface"
+                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                     xmlns:behaviours="http://metro.mahapps.com/winfx/xaml/shared"
+                     WindowStartupLocation="CenterScreen"
+                     mc:Ignorable="d"
+                     d:DataContext="{d:DesignInstance Type=editProcessApplication:EditProcessApplicationViewModel}"
+                     Title="{localize:ResX EditProcessApplicationDialogTitle, ResourceType=localization:EditProcessApplication}" 
+                     SizeToContent="Height"
+                     Width="550" Style="{StaticResource Window}" Name="Window" FocusManager.FocusedElement="{Binding ElementName=Name}">
+    <mahapps:MetroWindow.LeftWindowCommands>
+        <mahapps:WindowCommands>
+            <iconPacks:PackIconModern Kind="Settings" Foreground="{DynamicResource WindowBackgroundBrush}" />
+        </mahapps:WindowCommands>
+    </mahapps:MetroWindow.LeftWindowCommands>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource DialogDescription}" Text="{localize:ResX EditProcessApplicationDialogDescriptionText, ResourceType=localization:EditProcessApplication}" />
+        <Grid Grid.Row="1" Margin="10, 10, 10, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <TabControl Margin="0" Grid.Row="0">
+                <TabControl.Items>
+                    <TabItem Header="{localize:ResX EditProcessApplicationCommonTabHeader, ResourceType=localization:EditProcessApplication}">
+                        <GroupBox Height="189" Margin="0" Header="{localize:ResX EditProcessApplicationCommonGroupBoxHeader, ResourceType=localization:EditProcessApplication}" Grid.Row="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="30" />
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0" Grid.Column="0" ColumnSpan="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Content="{localize:ResX EditProcessApplicationExecuteLabelContent, ResourceType=localization:EditProcessApplication}" />
+                                    <TextBox Margin="0, 0, 4, 0" Grid.Row="0" Grid.Column="1" Text="{Binding Execute, UpdateSourceTrigger=PropertyChanged}" />
+                                    <Button Style="{StaticResource IconButton}" Margin="0, 0, 30, 0" ToolTip="{localize:ResX EditProcessApplicationSelectFilePathTooltip, ResourceType=localization:EditProcessApplication}" Grid.Row="0" Grid.Column="2" Command="{Binding SelectFileCommand}">
+                                        <iconPacks:PackIconModern Kind="PageSmall" Foreground="{DynamicResource AccentColorBrush}" />
+                                    </Button>
+                                    <Button Style="{StaticResource IconButton}" Margin="0" ToolTip="{localize:ResX EditProcessApplicationSelectDirectoryTooltip, ResourceType=localization:EditProcessApplication}" Grid.Row="0" Grid.Column="2" Command="{Binding SelectDirectoryCommand}">
+                                        <iconPacks:PackIconModern Kind="FolderOpen" Foreground="{DynamicResource AccentColorBrush}" />
+                                    </Button>
+                                </Grid>
+
+                                <Grid Grid.Row="1" Grid.Column="0" ColumnSpan="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Content="{localize:ResX EditProcessApplicationNameLabelContent, ResourceType=localization:EditProcessApplication}" />
+                                    <TextBox Name="Name" Margin="0, 0, 4, 0"  Grid.Row="0" Grid.Column="1" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+                                    <Button Margin="0" Width="26" ToolTip="{localize:ResX EditProcessApplicationDetermineApplicationNameTooltip, ResourceType=localization:EditProcessApplication}" Height="26" Grid.Row="0" Grid.Column="2" Command="{Binding DetermineApplicationNameCommand}">
+                                        <iconPacks:PackIconModern Kind="Message" Foreground="{DynamicResource AccentColorBrush}" />
+                                    </Button>
+                                </Grid>
+
+                                <Grid Grid.Row="2" Grid.Column="0" ColumnSpan="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Column="0" Content="{localize:ResX EditProcessApplicationWorkingDirectoryLabelContent, ResourceType=localization:EditProcessApplication}" />
+                                    <TextBox Margin="0, 0, 4, 0" Grid.Column="1" Text="{Binding WorkingDirectory, UpdateSourceTrigger=PropertyChanged}" />
+                                    <Button Style="{StaticResource IconButton}" Margin="0" ToolTip="{localize:ResX EditProcessApplicationWorkingDirectoryTooltip, ResourceType=localization:EditProcessApplication}" Grid.Row="0" Grid.Column="2" Command="{Binding SelectWorkingDirectoryCommand}">
+                                        <iconPacks:PackIconModern Kind="FolderOpen" Foreground="{DynamicResource AccentColorBrush}" />
+                                    </Button>
+                                </Grid>
+
+                                <CheckBox Grid.Row="3" Grid.Column="1" IsChecked="{Binding StretchSmallImage}">
+                                    <TextBlock Text="{localize:ResX EditProcessApplicationStretchSmallImageLabelContent, ResourceType=localization:EditProcessApplication}" />
+                                </CheckBox>
+
+                            </Grid>
+                        </GroupBox>
+                    </TabItem>
+                    <TabItem Header="{localize:ResX EditProcessApplicationAdvancedTabHeader, ResourceType=localization:EditProcessApplication}">
+                        <GroupBox Margin="0" Header="{localize:ResX EditProcessApplicationAdvancedGroupBoxHeader, ResourceType=localization:EditProcessApplication}" Grid.Row="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="120" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="30" />
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Content="{localize:ResX EditProcessApplicationArgumentsLabelContent, ResourceType=localization:EditProcessApplication}" />
+                                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Arguments, UpdateSourceTrigger=PropertyChanged}" />
+
+                                <Grid Grid.Row="1" Grid.Column="0" ColumnSpan="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="120" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Content="{localize:ResX EditProcessApplicationAffinityMaskLabelContent, ResourceType=localization:EditProcessApplication}" />
+                                    <Label Grid.Row="0" Grid.Column="1" Content="{Binding ProcessAffinityMask.SelectedBitCount, TargetNullValue=Bitte warten...}" ContentStringFormat="{localize:ResX EditProcessApplicationAffinityMaskSelectedBitCountLabelContent, ResourceType=localization:EditProcessApplication}" />
+                                    <Button Style="{StaticResource IconButton}" Margin="0" ToolTip="{localize:ResX EditProcessApplicationAffinityMaskTooltip, ResourceType=localization:EditProcessApplication}" Grid.Row="0" Grid.Column="2" Command="{Binding SetProcessAffinityMaskCommand}">
+                                        <iconPacks:PackIconModern Kind="TilesFour" Foreground="{DynamicResource AccentColorBrush}" />
+                                    </Button>
+                                </Grid>
+
+                                <Label Grid.Row="2" Grid.Column="0" Content="{localize:ResX EditProcessApplicationProcessPriorityClassLabelContent, ResourceType=localization:EditProcessApplication}" />
+                                <ComboBox Grid.Row="2" Grid.Column="1" Height="26" ItemsSource="{Binding AvailableProcessPriorityClasses}"
+                              DisplayMemberPath="DisplayText"
+                              SelectedValue="{Binding SelectedProcessPriorityClass}" />
+
+                                <Label Grid.Row="3" Grid.Column="0" Content="{localize:ResX EditProcessApplicationHotKeyLabelContent, ResourceType=localization:EditProcessApplication}" />
+                                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                                    <mahapps:HotKeyBox Width="370" Margin="0, 0, 4, 0"  Height="26" AreModifierKeysRequired="true" HotKey="{Binding HotKey}"  />
+                                    <controls:InfoIcon ToolTip="{localize:ResX EditProcessApplicationHotKeyKeepsEmptyInfoText, ResourceType=localization:EditProcessApplication}" />
+                                </StackPanel>
+
+                                <Label Grid.Row="4" Grid.Column="0" Content="{localize:ResX EditProcessApplicationProcessWindowStyleLabelContent, ResourceType=localization:EditProcessApplication}" />
+                                <ComboBox Grid.Row="4" Grid.Column="1" Height="26" ItemsSource="{Binding AvailableProcessWindowStyles}"
+                              DisplayMemberPath="DisplayText"
+                              SelectedValue="{Binding SelectedProcessWindowStyle}" />
+                            </Grid>
+                        </GroupBox>
+                    </TabItem>
+                </TabControl.Items>                
+            </TabControl>
+
+            <GroupBox Margin="0, 10, 0, 0" Grid.Row="1" Header="{localize:ResX EditProcessApplicationRunAsGroupBoxHeader, ResourceType=localization:EditProcessApplication}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Content="{localize:ResX EditProcessApplicationUsernameLabelContent, ResourceType=localization:EditProcessApplication}" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
+
+                    <Label Grid.Row="1" Grid.Column="0" Content="{localize:ResX EditProcessApplicationPasswordLabelContent, ResourceType=localization:EditProcessApplication}" />
+                    <PasswordBox DataContext="{Binding}" behaviours:PasswordBoxBindingBehavior.Password="{Binding Password,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Style="{DynamicResource MetroButtonRevealedPasswordBox}" Grid.Column="1" Grid.Row="1" mahapps:PasswordBoxHelper.CapsLockWarningToolTip="{localize:ResX ResourceName=EditProcessApplicationPasswordCapsLockIsOn, ResourceType=localization:EditProcessApplication}" />
+                </Grid>
+            </GroupBox>
+
+        </Grid>
+        <controls:DialogControlBar Grid.Row="2" Margin="0, 10, 0, 0">
+            <Button Margin="0, 0, 10, 0" IsCancel="True" Command="{Binding CancelCommand}" Content="{localize:ResX CancelButtonContent, ResourceType=localizationCommon:Common}" />
+            <Button IsDefault="True" Command="{Binding OKCommand}" Content="{localize:ResX OKButtonContent, ResourceType=localizationCommon:Common}" />
+        </controls:DialogControlBar>
+    </Grid>
+</mahapps:MetroWindow>

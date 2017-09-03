@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="JanHafner.Smartbar.Controls.TrayPopup.SmartbarTrayPopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:localize="clr-namespace:JanHafner.Smartbar.Common.Localization;assembly=Smartbar.Common"
+             xmlns:localization="clr-namespace:JanHafner.Smartbar.Controls.TrayPopup.Localization"
+             xmlns:mainWindow="clr-namespace:JanHafner.Smartbar.Views.MainWindow"
+             d:DataContext="{d:DesignInstance Type=mainWindow:MainWindowViewModel}"
+             mc:Ignorable="d" Background="White"
+             d:DesignHeight="300" d:DesignWidth="300" Padding="10, 0, 10, 0">
+    <StackPanel>
+        <Label HorizontalAlignment="Center" Foreground="{DynamicResource WindowTitleColorBrush}" Margin="0,0,0,5" FontSize="{DynamicResource WindowTitleFontSize}" Grid.Row="0" Content="{localize:ResX TrayPopupText, ResourceType=localization:TrayPopup}" />
+        <Button Content="{localize:ResX TrayPopupCreateGroupText, ResourceType=localization:TrayPopup}" Command="{Binding CreateGroupCommand}" Margin="0,0,0,5" />
+        <Button Content="{localize:ResX TrayPopupApplicationSettingsText, ResourceType=localization:TrayPopup}" Command="{Binding EditSmartbarSettingsCommand}" Margin="0,0,0,5" />
+        <Button Content="{localize:ResX TrayPopupShowPluginManagerText, ResourceType=localization:TrayPopup}" Command="{Binding ShowPluginManagementCommand}" Margin="0,0,0,5" />
+    </StackPanel>
+</UserControl>

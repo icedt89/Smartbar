@@ -1,0 +1,177 @@
+﻿<ResourceDictionary x:Class="JanHafner.Smartbar.Common.UserInterface.Resources.resources_commonstyles_xaml"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:userInterface="clr-namespace:JanHafner.Smartbar.Common.UserInterface"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <userInterface:EnumMatchToBooleanConverter x:Key="EnumMatchToBooleanConverter" />
+    <userInterface:NegatingBooleanConverter x:Key="NegatingBooleanConverter" />
+
+    <Style x:Key="Window" TargetType="{x:Type mahapps:MetroWindow}">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+    </Style>
+
+    <Style TargetType="mahapps:NumericUpDown">
+        <Setter Property="Height" Value="26" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+
+    <Style TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
+        <Setter Property="Height" Value="26" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+
+    <Style TargetType="xctk:ColorPicker">
+        <Setter Property="Height" Value="26" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+    
+    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Height" Value="26" />
+        <Setter Property="Width" Value="150" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+
+    <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+        <Setter Property="Height" Value="26" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+
+    <Style x:Key="IconButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Width" Value="26" />
+        <Setter Property="Padding" Value="2" />
+    </Style>
+
+    <Style x:Key="DialogDescription" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{DynamicResource DialogMessageFontSize}" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Background" Value="{DynamicResource WindowTitleColorBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource IdealForegroundColorBrush}" />
+    </Style>
+
+    <Color x:Key="SuccessForeground">#3c763d</Color>
+    <Color x:Key="SuccessBackground">#dff0d8</Color>
+    <Color x:Key="SuccessBorder">#d6e9c6</Color>
+    <SolidColorBrush x:Key="SucessBackgroundBrush" Color="{StaticResource SuccessBackground}" />
+    <SolidColorBrush x:Key="SuccessBorderBrush" Color="{StaticResource SuccessBorder}" />
+
+    <Style x:Key="SuccessDialogDescription" TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+        <Setter Property="FontSize" Value="{DynamicResource DialogMessageFontSize}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Foreground" Value="#3c763d" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="{StaticResource SucessBackgroundBrush}" BorderBrush="{StaticResource SuccessBorderBrush}" BorderThickness="1" >
+                        <Grid Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <iconPacks:PackIconModern Width="16" Height="16" Margin="0, 5, 10, 0" VerticalAlignment="Top" Kind="Check" Foreground="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" TextWrapping="Wrap" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Color x:Key="WarningForeground">#8a6d3b</Color>
+    <Color x:Key="WarningBackground">#fcf8e3</Color>
+    <Color x:Key="WarningBorder">#faebcc</Color>
+    <SolidColorBrush x:Key="WarningBackgroundBrush" Color="{StaticResource WarningBackground}" />
+    <SolidColorBrush x:Key="WarningBorderBrush" Color="{StaticResource WarningBorder}" />
+
+    <Style x:Key="WarningDialogDescription" TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+        <Setter Property="FontSize" Value="{DynamicResource DialogMessageFontSize}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Foreground" Value="#8a6d3b" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="{StaticResource WarningBackgroundBrush}" BorderBrush="{StaticResource WarningBorderBrush}" BorderThickness="1" >
+                        <Grid Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <iconPacks:PackIconModern Width="16" Height="16" Margin="0, 5, 10, 0" VerticalAlignment="Top" Kind="Warning" Foreground="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" TextWrapping="Wrap" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Color x:Key="InfoForeground">#31708f</Color>
+    <Color x:Key="InfoBackground">#d9edf7</Color>
+    <Color x:Key="InfoBorder">#bce8f1</Color>
+    <SolidColorBrush x:Key="InfoBackgroundBrush" Color="{StaticResource InfoBackground}" />
+    <SolidColorBrush x:Key="InfoBorderBrush" Color="{StaticResource InfoBorder}" />
+    
+    <Style x:Key="InfoDialogDescription" TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+        <Setter Property="FontSize" Value="{DynamicResource DialogMessageFontSize}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Foreground" Value="#31708f" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="{StaticResource InfoBackgroundBrush}" BorderBrush="{StaticResource InfoBorderBrush}" BorderThickness="1" >
+                        <Grid Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <iconPacks:PackIconModern Width="16" Height="16" Margin="0, 5, 10, 0" VerticalAlignment="Top" Kind="InformationCircle" Foreground="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" TextWrapping="Wrap" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Color x:Key="ErrorForeground">#a94442</Color>
+    <Color x:Key="ErrorBackground">#f2dede</Color>
+    <Color x:Key="ErrorBorder">#ebccd1</Color>
+    <SolidColorBrush x:Key="ErrorBackgroundBrush" Color="{StaticResource ErrorBackground}" />
+    <SolidColorBrush x:Key="ErrorBorderBrush" Color="{StaticResource ErrorBorder}" />
+    <SolidColorBrush x:Key="ErrorForegroundBrush" Color="{StaticResource ErrorForeground}" />
+    
+    <Style x:Key="ErrorDialogDescription" TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+        <Setter Property="FontSize" Value="{DynamicResource DialogMessageFontSize}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Foreground" Value="#a94442" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="{StaticResource ErrorBackgroundBrush}" BorderBrush="{StaticResource ErrorBorderBrush}" BorderThickness="1" >
+                        <Grid Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <iconPacks:PackIconModern Width="16" Height="16" Margin="0, 5, 10, 0" VerticalAlignment="Top" Kind="InformationCircle" Foreground="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Content, RelativeSource={RelativeSource TemplatedParent}}" TextWrapping="Wrap" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

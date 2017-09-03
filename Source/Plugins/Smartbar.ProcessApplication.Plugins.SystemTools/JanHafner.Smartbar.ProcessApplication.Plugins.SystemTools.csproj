@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{29CF62B8-45A2-45E4-9F46-3C5415CF0175}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JanHafner.Smartbar.ProcessApplication.Plugins.SystemTools</RootNamespace>
+    <AssemblyName>JanHafner.Smartbar.ProcessApplication.Plugins.SystemTools</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JanHafner.Toolkit.Common">
+      <HintPath>..\..\Binaries\JanHafner.Toolkit.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="JanHafner.Toolkit.Windows">
+      <HintPath>..\..\Binaries\JanHafner.Toolkit.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Core.6.2.1\lib\net45\Prism.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Annotations\BaseTypeRequiredAttribute.cs">
+      <Link>Annotations\BaseTypeRequiredAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\CanBeNullAttribute.cs">
+      <Link>Annotations\CanBeNullAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\CollectionAccessAttribute.cs">
+      <Link>Annotations\CollectionAccessAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\CollectionAccessType.cs">
+      <Link>Annotations\CollectionAccessType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\ImplicitUseKindFlags.cs">
+      <Link>Annotations\ImplicitUseKindFlags.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\ImplicitUseTargetFlags.cs">
+      <Link>Annotations\ImplicitUseTargetFlags.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\InstantHandleAttribute.cs">
+      <Link>Annotations\InstantHandleAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\InvokerParameterNameAttribute.cs">
+      <Link>Annotations\InvokerParameterNameAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\ItemCanBeNullAttribute.cs">
+      <Link>Annotations\ItemCanBeNullAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\ItemNotNullAttribute.cs">
+      <Link>Annotations\ItemNotNullAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\LinqTunnelAttribute.cs">
+      <Link>Annotations\LinqTunnelAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\LocalizationRequiredAttribute.cs">
+      <Link>Annotations\LocalizationRequiredAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\MeansImplicitUseAttribute.cs">
+      <Link>Annotations\MeansImplicitUseAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\NotifyPropertyChangedInvocatorAttribute.cs">
+      <Link>Annotations\NotifyPropertyChangedInvocatorAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\NotNullAttribute.cs">
+      <Link>Annotations\NotNullAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\PublicAPIAttribute.cs">
+      <Link>Annotations\PublicAPIAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\PureAttribute.cs">
+      <Link>Annotations\PureAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\RegexPatternAttribute.cs">
+      <Link>Annotations\RegexPatternAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\StringFormatMethodAttribute.cs">
+      <Link>Annotations\StringFormatMethodAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\UsedImplicitlyAttribute.cs">
+      <Link>Annotations\UsedImplicitlyAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Annotations\ValueProviderAttribute.cs">
+      <Link>Annotations\ValueProviderAttribute.cs</Link>
+    </Compile>
+    <Compile Include="CreateSystemToolUICommand.cs" />
+    <Compile Include="Localization\MenuItems.de.Designer.cs">
+      <DependentUpon>MenuItems.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\DisplayTexts.de.Designer.cs">
+      <DependentUpon>DisplayTexts.de.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Localization\DisplayTexts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DisplayTexts.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\MenuItems1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenuItems.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Metadata\MsConfigSystemToolMetadata.cs" />
+    <Compile Include="Metadata\GodModeSystemToolMetadata.cs" />
+    <Compile Include="Metadata\ISystemToolMetadata.cs" />
+    <Compile Include="Metadata\ProgramsAndFunctionsSystemToolMetadata.cs" />
+    <Compile Include="Metadata\ControlPanelSystemToolMetadata.cs" />
+    <Compile Include="Metadata\SharedFoldersSystemToolMetadata.cs" />
+    <Compile Include="Metadata\UsersSystemToolMetadata.cs" />
+    <Compile Include="Metadata\WindowsFirewallSystemToolMetadata.cs" />
+    <Compile Include="Metadata\ServicesSystemToolMetadata.cs" />
+    <Compile Include="Metadata\DeviceManagementSystemToolMetadata.cs" />
+    <Compile Include="Metadata\DefragmentationSystemToolMetadata.cs" />
+    <Compile Include="Metadata\GroupPoliciesSystemToolMetadata.cs" />
+    <Compile Include="Metadata\SecurityPoliciesSystemToolMetadata.cs" />
+    <Compile Include="Metadata\DiskManagementSystemToolMetadata.cs" />
+    <Compile Include="Metadata\ComputerManagementSystemToolMetadata.cs" />
+    <Compile Include="Metadata\EventViewerSystemToolMetadata.cs" />
+    <Compile Include="Metadata\ManagementConsoleMetadata.cs" />
+    <Compile Include="Metadata\ManagementConsoleSnapInReader.cs" />
+    <Compile Include="Metadata\SystemToolMetadata.cs" />
+    <Compile Include="SystemToolsUICommand.cs" />
+    <Compile Include="SystemToolsUICommandProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Smartbar.Common\JanHafner.Smartbar.Common.csproj">
+      <Project>{fba531b1-1342-4473-afc2-849b0d3d51fc}</Project>
+      <Name>JanHafner.Smartbar.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smartbar.Extensibility\JanHafner.Smartbar.Extensibility.csproj">
+      <Project>{c6bbd0de-12fc-4ce8-aa02-c5b95bc31361}</Project>
+      <Name>JanHafner.Smartbar.Extensibility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smartbar.ProcessApplication\JanHafner.Smartbar.ProcessApplication.csproj">
+      <Project>{9DD69D22-6A8B-436E-A17D-5A5405AEAAF5}</Project>
+      <Name>JanHafner.Smartbar.ProcessApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Smartbar.Services\JanHafner.Smartbar.Services.csproj">
+      <Project>{1105CC0E-3294-428B-81ED-CA37A6A3E235}</Project>
+      <Name>JanHafner.Smartbar.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Smartbar.ProcessApplication.Plugins.SystemTools.Debug.nuspec" />
+    <None Include="Smartbar.ProcessApplication.Plugins.SystemTools.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\MenuItems.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuItems.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\MenuItems.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuItems1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\DisplayTexts.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DisplayTexts.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\DisplayTexts.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DisplayTexts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

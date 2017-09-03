@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Smartbar</id>
+    <version>1.8.6.0</version>
+    <authors>Jan Hafner</authors>
+    <owners>Jan Hafner</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An extensible quick launch bar for Windows.</description>
+    <copyright>Copyright © Jan Hafner</copyright>
+    <tags>smartbar</tags>
+    <releaseNotes>
+    </releaseNotes>
+  </metadata>
+  <files>
+    <file src="bin\Debug\de\Smartbar.Common.UserInterface.resources.dll" target="de\Smartbar.Common.UserInterface.resources.dll" />
+    <file src="bin\Debug\de\Smartbar.Extensibility.resources.dll" target="de\Smartbar.Extensibility.resources.dll" />
+    <file src="bin\Debug\de\Smartbar.ProcessApplication.resources.dll" target="de\Smartbar.ProcessApplication.resources.dll" />
+    <file src="bin\Debug\de\Smartbar.resources.dll" target="de\Smartbar.resources.dll" />
+    <file src="bin\Debug\Smartbar.exe" target="Smartbar.exe" />
+    <file src="bin\Debug\Smartbar.Common.dll" target="Smartbar.Common.dll" />
+    <file src="bin\Debug\Smartbar.Common.UserInterface.dll" target="Smartbar.Common.UserInterface.dll" />
+    <file src="bin\Debug\Smartbar.Extensibility.dll" target="Smartbar.Extensibility.dll" />
+    <file src="bin\Debug\Smartbar.Model.dll" target="Smartbar.Model.dll" />
+    <file src="bin\Debug\Smartbar.Services.dll" target="Smartbar.Services.dll" />
+    <file src="bin\Debug\Smartbar.ProcessApplication.dll" target="Smartbar.ProcessApplication.dll" />
+    <file src="bin\Debug\JanHafner.Toolkit.Common.dll" target="JanHafner.Toolkit.Common.dll" />
+    <file src="bin\Debug\JanHafner.Toolkit.Windows.HotKey.dll" target="JanHafner.Toolkit.Windows.HotKey.dll" />
+    <file src="bin\Debug\JanHafner.Toolkit.Wpf.dll" target="JanHafner.Toolkit.Wpf.dll" />
+    <file src="bin\Debug\MahApps.Metro.dll" target="MahApps.Metro.dll" />
+    <file src="bin\Debug\MahApps.Metro.IconPacks.dll" target="MahApps.Metro.dll" />
+    <file src="bin\Debug\Microsoft.ApplicationInsights.dll" target="Microsoft.ApplicationInsights.dll" />
+    <file src="bin\Debug\Newtonsoft.Json.dll" target="Newtonsoft.Json.dll" />
+    <file src="bin\Debug\NuGet.Core.dll" target="NuGet.Core.dll" />
+    <file src="bin\Debug\Prism.dll" target="Prism.dll" />
+    <file src="bin\Debug\System.Windows.Interactivity.dll" target="System.Windows.Interactivity.dll" />
+    <file src="bin\Debug\Xceed.Wpf.Toolkit.dll" target="Xceed.Wpf.Toolkit.dll" />
+  </files>
+</package>

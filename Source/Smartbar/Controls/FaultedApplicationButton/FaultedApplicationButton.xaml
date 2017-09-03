@@ -1,0 +1,39 @@
+﻿<userInterface:ApplicationButton x:Class="JanHafner.Smartbar.Controls.FaultedApplicationButton.FaultedApplicationButton" x:ClassModifier="internal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:userInterface="clr-namespace:JanHafner.Smartbar.Extensibility.UserInterface;assembly=Smartbar.Extensibility"
+        xmlns:localize="clr-namespace:JanHafner.Smartbar.Common.Localization;assembly=Smartbar.Common"
+                                 xmlns:localization="clr-namespace:JanHafner.Smartbar.Controls.FaultedApplicationButton.Localization"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        AllowDrop="True" 
+        d:DesignHeight="100" d:DesignWidth="100" Background="{StaticResource ErrorBackgroundBrush}" BorderBrush="{StaticResource ErrorBorderBrush}">
+    <iconPacks:PackIconModern Kind="HeartBreak" Foreground="{StaticResource ErrorForegroundBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="{Binding Height, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" />
+    <userInterface:ApplicationButton.ContextMenu>
+        <ContextMenu DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+            <MenuItem Header="{localize:ResX DeleteFaultedApplicationMenuIemText, ResourceType=localization:FaultedApplicationButton}" Command="{Binding DeleteFaultedApplicationCommand}">
+                <MenuItem.Icon>
+                    <iconPacks:PackIconModern Margin="6, 0, 0, 0" Kind="Delete" Foreground="{DynamicResource AccentColorBrush}" />
+                </MenuItem.Icon>
+            </MenuItem>
+        </ContextMenu>
+    </userInterface:ApplicationButton.ContextMenu>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseEnter">
+            <i:InvokeCommandAction CommandParameter="{Binding}"
+                                                            Command="{Binding MouseEnterApplicationButtonCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="MouseLeave">
+            <i:InvokeCommandAction CommandParameter="{Binding}"
+                                                            Command="{Binding MouseLeaveApplicationButtonCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <userInterface:ApplicationButton.PreviewTemplate>
+        <DataTemplate>
+            <iconPacks:PackIconModern Kind="Add" Foreground="{StaticResource AccentColorBrush4}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="{Binding Height, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" Width="{Binding Width, RelativeSource={RelativeSource AncestorType=userInterface:ApplicationButton}}" />
+        </DataTemplate>
+    </userInterface:ApplicationButton.PreviewTemplate>
+</userInterface:ApplicationButton>
