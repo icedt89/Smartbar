@@ -33,7 +33,7 @@
             var result = new Update();
             try
             {
-                String assumedSmartbarDirectory;
+                String assumedSmartbarDirectory = String.Empty;
                 var assumedSmartbarExeFile = this.TryFindSmartbarExe(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), out assumedSmartbarDirectory);
                 if (File.Exists(assumedSmartbarExeFile))
                 {
@@ -62,17 +62,26 @@
                 throw new ArgumentNullException(nameof(update));
             }
 
-            var updateRepository = PackageRepositoryFactory.Default.CreateRepository(this.smartbarSettings.PluginPackagesFeed);
-            var updatePackage = (await Task.Run(() => updateRepository.GetUpdates(
-                new[]
-                {
-                        new PackageName(Properties.Settings.Default.SmartbarPackageId, update.Local.Version)
-                },
-                false, false))).SingleOrDefault();
-            if (updatePackage != null)
-            {
-                update.RemoteFound(new RemoteVersion(updatePackage.Version, updatePackage));
-            }
+	        try
+	        {
+		        var updateRepository = PackageRepositoryFactory.Default.CreateRepository(this.smartbarSettings.PluginPackagesFeed);
+		        var updatePackage = (await Task.Run(() => updateRepository.GetUpdates(
+			        new[]
+			        {
+				        new PackageName(Properties.Settings.Default.SmartbarPackageId, update.Local.Version)
+			        },
+			        false, false))).SingleOrDefault();
+		        if (updatePackage != null)
+		        {
+			        update.RemoteFound(new RemoteVersion(updatePackage.Version, updatePackage));
+		        }
+			}
+	        catch (Exception exception)
+	        {
+				update.CheckFailed(exception);
+
+		        throw;
+	        }
         }
 
         [CanBeNull]

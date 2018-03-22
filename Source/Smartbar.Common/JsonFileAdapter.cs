@@ -9,7 +9,14 @@ namespace JanHafner.Smartbar.Common
     {
         protected async Task SaveFileToDiskSafeAsync(String file, String content)
         {
-            var backupFileName = $"{file}.bak";
+	        if (!File.Exists(file))
+	        {
+				File.WriteAllText(file, content);
+
+		        return;
+	        }
+
+			var backupFileName = $"{file}.bak";
 
             using (var streamWriter = new StreamWriter(backupFileName, false, Encoding.Unicode))
             {

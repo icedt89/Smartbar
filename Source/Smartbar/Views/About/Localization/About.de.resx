@@ -132,6 +132,9 @@
   <data name="NoUpdateAvailableButtonContent" xml:space="preserve">
     <value>Bereits aktuell</value>
   </data>
+  <data name="UpdateCheckFailedButtonContent" xml:space="preserve">
+    <value>Update nicht möglich</value>
+  </data>
   <data name="UpdateToVersionButtonContent" xml:space="preserve">
     <value>Aktualisieren auf {0}</value>
   </data>

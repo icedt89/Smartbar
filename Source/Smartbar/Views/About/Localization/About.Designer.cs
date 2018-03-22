@@ -19,7 +19,7 @@ namespace JanHafner.Smartbar.Views.About.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class About {
@@ -102,6 +102,15 @@ namespace JanHafner.Smartbar.Views.About.Localization {
         internal static string NoUpdateAvailableButtonContent {
             get {
                 return ResourceManager.GetString("NoUpdateAvailableButtonContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update not possible.
+        /// </summary>
+        internal static string UpdateCheckFailedButtonContent {
+            get {
+                return ResourceManager.GetString("UpdateCheckFailedButtonContent", resourceCulture);
             }
         }
         

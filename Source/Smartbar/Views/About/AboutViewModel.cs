@@ -111,14 +111,22 @@
                     return Localization.About.CheckForUpdateButtonContent;
                 }
 
-                if (this.currentUpdate?.Remote != null)
-                {
-                    return Localization.About.UpdateToVersionButtonContent;
-                }
+	            if (this.currentUpdate != null)
+	            {
+		            if (this.currentUpdate.Remote != null)
+		            {
+			            return Localization.About.UpdateToVersionButtonContent;
+					}
 
-                return Localization.About.NoUpdateAvailableButtonContent;
-            }
-        }
+		            if (this.currentUpdate.CheckSuccessful)
+		            {
+			            return Localization.About.NoUpdateAvailableButtonContent;
+					}
+	            }
+
+	            return Localization.About.UpdateCheckFailedButtonContent;
+			}
+		}
 
         [NotNull]
         public String ApplicationWebsite

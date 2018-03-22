@@ -14,6 +14,11 @@
         [CanBeNull]
         public RemoteVersion Remote { get; private set; }
 
+	    public Boolean CheckSuccessful { get; private set; } = true;
+
+		[CanBeNull]
+		public Exception UpdateCheckExcetion { get; private set; }
+
         public void StartSmartbar()
         {
             if (this.Local == null)
@@ -34,6 +39,12 @@
             var fileSystem = new PhysicalFileSystem(this.Local.AssumedSmartbarDirectory);
             await Task.Run(() => this.Remote.UpdatePackage.ExtractContents(fileSystem, "."));
         }
+
+	    internal void CheckFailed([CanBeNull] Exception exception)
+	    {
+		    this.CheckSuccessful = false;
+		    this.UpdateCheckExcetion = exception;
+	    }
 
         internal void LocalAvailable([NotNull] LocalVersion local)
         {
