@@ -83,9 +83,13 @@
             set { this.serializableSmartbarSettings.PinSmartbarAtPosition = value; }
         }
 
-        public Boolean IsModuleExplorerAvailable { get; set; }
+        public Boolean IsModuleExplorerAvailable
+        {
+	        get { return this.serializableSmartbarSettings.IsModuleExplorerAvailable; }
+	        set { this.serializableSmartbarSettings.IsModuleExplorerAvailable = value; }
+        }
 
-        public String BasePluginsDirectoryName
+		public String BasePluginsDirectoryName
         {
             get { return this.serializableSmartbarSettings.BasePluginsDirectoryName; }
         }
@@ -240,7 +244,7 @@
                 this.Rows = 1;
                 this.Columns = 8;
                 this.GridCellContentSize = 1;
-                this.GridCellContentSize = 60;
+                this.GridCellContentSize = 48;
                 this.AccentColorScheme = "Blue";
                 this.LanguageIdentifier = "EN";
                 this.DefaultLanguageIdentifier = "EN";
@@ -254,19 +258,15 @@
                 this.NotificationOnPluginUpdates = true;
                 this.NotificationOnSmartbarUpdate = true;
                 this.InitialPosition = new Point(0, 0);
-
-#if DEBUG
-                // SmartbarApplication-Development
-                this.PluginPackagesFeed = "http://smartbarserver-development.azurewebsites.net/nuget";
-#else
-                // SmartbarApplication
-                this.PluginPackagesFeed = "http://smartbarserver.azurewebsites.net/nuget";
-#endif
+	            this.IsModuleExplorerAvailable = true;
+	            this.PluginPackagesFeed = $"http://{Guid.NewGuid()}.dummy.org";
             }
 
             public Boolean PinSmartbarAtPosition { get; set; }
 
-            public String AccentColorScheme { get; set; }
+	        public Boolean IsModuleExplorerAvailable { get; set; }
+
+			public String AccentColorScheme { get; set; }
 
             public Boolean AutoSelectCreatedGroup { get; set; }
 
