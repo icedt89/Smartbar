@@ -19,7 +19,7 @@
                      Width="550" Style="{StaticResource Window}" Name="Window" FocusManager.FocusedElement="{Binding ElementName=Name}">
     <mahapps:MetroWindow.LeftWindowCommands>
         <mahapps:WindowCommands>
-            <iconPacks:PackIconModern Kind="Settings" Foreground="{DynamicResource WindowBackgroundBrush}" />
+			<iconPacks:PackIconModern Kind="Settings" Foreground="{DynamicResource WindowBackgroundBrush}" />
         </mahapps:WindowCommands>
     </mahapps:MetroWindow.LeftWindowCommands>
     <Grid>

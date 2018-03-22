@@ -27,8 +27,8 @@
             NullValueHandling = NullValueHandling.Ignore,
             ObjectCreationHandling = ObjectCreationHandling.Auto,
             PreserveReferencesHandling = PreserveReferencesHandling.Objects,
-            TypeNameAssemblyFormat = FormatterAssemblyStyle.Full,
-            Formatting = Formatting.Indented
+            Formatting = Formatting.Indented,
+			TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Full
         };
 
         [NotNull]
@@ -255,8 +255,8 @@
                 this.DefaultDummyGroupName = "Applications";
                 this.SnapOnScreenBorders = true;
                 this.SnapOnScreenBordersOffset = 10;
-                this.NotificationOnPluginUpdates = true;
-                this.NotificationOnSmartbarUpdate = true;
+                this.NotificationOnPluginUpdates = false;
+                this.NotificationOnSmartbarUpdate = false;
                 this.InitialPosition = new Point(0, 0);
 	            this.IsModuleExplorerAvailable = true;
 	            this.PluginPackagesFeed = $"http://{Guid.NewGuid()}.dummy.org";

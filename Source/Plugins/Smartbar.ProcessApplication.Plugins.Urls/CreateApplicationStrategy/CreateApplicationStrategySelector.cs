@@ -19,9 +19,8 @@ namespace JanHafner.Smartbar.ProcessApplication.Plugins.Urls.CreateApplicationSt
 
         private static Boolean CanCreateFromUrl(String data)
         {
-            Uri uri;
-            return data.TryCreateValidUri(out uri);
-        }
+			return data.TryCreateValidUri(out Uri uri);
+		}
 
         private static Boolean CanCreateFromUrlFile(String data)
         {

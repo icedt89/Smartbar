@@ -16,6 +16,12 @@
         <Setter Property="ResizeMode" Value="NoResize" />
     </Style>
 
+	<Style TargetType="iconPacks:PackIconModern">
+		<Setter Property="Margin" Value="2, 2, 6, 2" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalAlignment" Value="Center" />
+	</Style>
+
     <Style TargetType="mahapps:NumericUpDown">
         <Setter Property="Height" Value="26" />
         <Setter Property="Margin" Value="0" />

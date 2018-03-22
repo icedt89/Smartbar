@@ -27,7 +27,7 @@
     </mahapps:MetroWindow.Resources>
     <mahapps:MetroWindow.LeftWindowCommands>
         <mahapps:WindowCommands>
-            <iconPacks:PackIconModern Kind="Brick" Foreground="{DynamicResource WindowBackgroundBrush}" />
+			<iconPacks:PackIconModern Kind="Brick" Foreground="{DynamicResource WindowBackgroundBrush}" />
         </mahapps:WindowCommands>
     </mahapps:MetroWindow.LeftWindowCommands>
     <mahapps:MetroWindow.RightWindowCommands>

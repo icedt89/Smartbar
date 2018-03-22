@@ -35,29 +35,28 @@
             var extractedIconsCount = 0;
             var extractedIcons = new List<IconImageSourceBag>();
 
-            IconExtractor iconExtractor;
-            if (IconExtractor.CouldBeIconFile(file) && IconExtractor.TryCreate(file, out iconExtractor))
-            {
-                using (iconExtractor)
-                {
-                    var icons = await iconExtractor.EnumerateIconsAsync(cancellationToken);
+			if (IconExtractor.CouldBeIconFile(file) && IconExtractor.TryCreate(file, out IconExtractor iconExtractor))
+			{
+				using (iconExtractor)
+				{
+					var icons = await iconExtractor.EnumerateIconsAsync(cancellationToken);
 
-                    extractedIcons.AddRange(icons.Select((icon, index) => new IconImageSourceBag(icon, IconIdentifierType.Index, index))
-                        .OrderByDescending(iconImageSourceBag => iconImageSourceBag.Height + iconImageSourceBag.Width));
-                }
-            }
-            else
-            {
-                using (var nativeExecutable = new NativeExecutable(file))
-                {
-                    extractedIcons.AddRange((await nativeExecutable.ExtractIconsAsync(cancellationToken))
-                        .Select(iconResourceBag => new IconImageSourceBag(iconResourceBag))
-                        .OrderByDescending(iconImageSourceBag => iconImageSourceBag.Height + iconImageSourceBag.Width)
-                        .ThenBy(iconImageSourceBag => iconImageSourceBag.Identifier));
-                }
-            }
+					extractedIcons.AddRange(icons.Select((icon, index) => new IconImageSourceBag(icon, IconIdentifierType.Index, index))
+						.OrderByDescending(iconImageSourceBag => iconImageSourceBag.Height + iconImageSourceBag.Width));
+				}
+			}
+			else
+			{
+				using (var nativeExecutable = new NativeExecutable(file))
+				{
+					extractedIcons.AddRange((await nativeExecutable.ExtractIconsAsync(cancellationToken))
+						.Select(iconResourceBag => new IconImageSourceBag(iconResourceBag))
+						.OrderByDescending(iconImageSourceBag => iconImageSourceBag.Height + iconImageSourceBag.Width)
+						.ThenBy(iconImageSourceBag => iconImageSourceBag.Identifier));
+				}
+			}
 
-            cancellationToken.ThrowIfCancellationRequested();
+			cancellationToken.ThrowIfCancellationRequested();
 
             foreach (var icon in extractedIcons)
             {

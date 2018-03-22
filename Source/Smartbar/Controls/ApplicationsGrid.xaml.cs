@@ -370,9 +370,8 @@
 
         protected override void OnDragEnter(DragEventArgs e)
         {
-            ApplicationViewModel applicationViewModel = null;
-            var draggedInsideApplicationButton = this.FindApplicationButton((DependencyObject)e.Source, out applicationViewModel);
-            if (draggedInsideApplicationButton == this.applicationButtonWhichInitiatedDragEnter)
+			var draggedInsideApplicationButton = this.FindApplicationButton((DependencyObject)e.Source, out ApplicationViewModel applicationViewModel);
+			if (draggedInsideApplicationButton == this.applicationButtonWhichInitiatedDragEnter)
             {
                 // DragEnter occured but is called implicitly by moving the mouse on the initial button.
                 this.potentialApplicationButtonsForDrop.Clear();

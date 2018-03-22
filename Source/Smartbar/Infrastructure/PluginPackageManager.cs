@@ -77,6 +77,7 @@
             {
                 throw new ArgumentNullException(nameof(package));
             }
+
             return await Task.Run(() => this.packageManager.LocalRepository.Exists(package));
         }
 

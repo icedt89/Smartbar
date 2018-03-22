@@ -18,7 +18,7 @@
                      Height="275.984" MinHeight="350" MinWidth="500">
     <mahapps:MetroWindow.LeftWindowCommands>
         <mahapps:WindowCommands>
-            <iconPacks:PackIconModern Kind="Brick" Foreground="{DynamicResource WindowBackgroundBrush}" />
+			<iconPacks:PackIconModern Kind="Brick" Foreground="{DynamicResource WindowBackgroundBrush}" />
         </mahapps:WindowCommands>
     </mahapps:MetroWindow.LeftWindowCommands>
     <Grid>

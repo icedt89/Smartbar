@@ -38,13 +38,12 @@
                     result.IconFile = Environment.ExpandEnvironmentVariables(result.IconFile);
                 }
 
-                Int32 iconIndex;
-                if (Int32.TryParse(this.mmcReader.GetAttribute("Index"), out iconIndex))
-                {
-                    result.IconIndex = iconIndex;
-                }
+				if (Int32.TryParse(this.mmcReader.GetAttribute("Index"), out int iconIndex))
+				{
+					result.IconIndex = iconIndex;
+				}
 
-                break;
+				break;
             }
 
             return result;

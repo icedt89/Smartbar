@@ -39,35 +39,33 @@
                 throw new ArgumentNullException(nameof(shellClassInfo));
             }
 
-            NativeResourceDescriptor iconResourceDescriptor;
-            if (shellClassInfo.IconIndex.HasValue && !String.IsNullOrWhiteSpace(shellClassInfo.IconFile))
-            {
-                identifier = shellClassInfo.IconIndex.Value;
-                file = Environment.ExpandEnvironmentVariables(shellClassInfo.IconFile);
-                identifierType = IconIdentifier.Identify(identifier);
-            }
-            else if (NativeResourceDescriptor.TryParseFromResourceString(shellClassInfo.IconResource,
-                out iconResourceDescriptor))
-            {
-                identifier = (Int32)iconResourceDescriptor.ResourceId;
-                file = iconResourceDescriptor.File;
-                identifierType = IconIdentifierType.ResourceId;
-            }
+			if (shellClassInfo.IconIndex.HasValue && !String.IsNullOrWhiteSpace(shellClassInfo.IconFile))
+			{
+				identifier = shellClassInfo.IconIndex.Value;
+				file = Environment.ExpandEnvironmentVariables(shellClassInfo.IconFile);
+				identifierType = IconIdentifier.Identify(identifier);
+			}
+			else if (NativeResourceDescriptor.TryParseFromResourceString(shellClassInfo.IconResource,
+				out NativeResourceDescriptor iconResourceDescriptor))
+			{
+				identifier = (Int32)iconResourceDescriptor.ResourceId;
+				file = iconResourceDescriptor.File;
+				identifierType = IconIdentifierType.ResourceId;
+			}
 
-            NativeResourceDescriptor localizedResourceDescriptor;
-            if (NativeResourceDescriptor.TryParseFromResourceString(shellClassInfo.LocalizedResourceName,
-                out localizedResourceDescriptor))
-            {
-                using (var nativeExecutable = new NativeExecutable(localizedResourceDescriptor.File))
-                {
-                    var localizedResourceString = nativeExecutable.GetResourceString(localizedResourceDescriptor);
-                    if (!String.IsNullOrWhiteSpace(localizedResourceString))
-                    {
-                        name = localizedResourceString;
-                    }
-                }
-            }
-        }
+			if (NativeResourceDescriptor.TryParseFromResourceString(shellClassInfo.LocalizedResourceName,
+				out NativeResourceDescriptor localizedResourceDescriptor))
+			{
+				using (var nativeExecutable = new NativeExecutable(localizedResourceDescriptor.File))
+				{
+					var localizedResourceString = nativeExecutable.GetResourceString(localizedResourceDescriptor);
+					if (!String.IsNullOrWhiteSpace(localizedResourceString))
+					{
+						name = localizedResourceString;
+					}
+				}
+			}
+		}
 
         public Boolean CanCreate(Object data)
         {
@@ -79,20 +77,18 @@
         {
             var stringData = (String)data;
 
-            var identifier = 0;
-            var file = PathUtilities.GetDefaultDirectoryIcon(out identifier);
-            var identifierType = IconIdentifierType.Index;
+			var file = PathUtilities.GetDefaultDirectoryIcon(out int identifier);
+			var identifierType = IconIdentifierType.Index;
 
             var name = PathUtilities.GetIdealDirectoryDisplayName(stringData);
             var pluginConfiguration = this.pluginConfigurationService.GetConfigurationOrDefault<DirectoryDragDropHandlerPluginConfiguration>();
 
-            ShellClassInfo shellClassInfo;
-            if (pluginConfiguration.ProcessDesktopIni && DesktopIniHelper.TryGetShellClassInfo(stringData, out shellClassInfo))
-            {
-                this.ApplyDesktopIni(shellClassInfo, ref file, ref identifier, ref identifierType, ref name);
-            }
+			if (pluginConfiguration.ProcessDesktopIni && DesktopIniHelper.TryGetShellClassInfo(stringData, out ShellClassInfo shellClassInfo))
+			{
+				this.ApplyDesktopIni(shellClassInfo, ref file, ref identifier, ref identifierType, ref name);
+			}
 
-            var explorerPath = PathUtilities.GetExplorer();
+			var explorerPath = PathUtilities.GetExplorer();
 
             var applicationId = Guid.NewGuid();
             return new CreateProcessApplicationContainerCommand

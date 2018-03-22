@@ -40,10 +40,13 @@
             {
                 await this.smartbarUpdater.UpdateRemoteInformationAsync(this.currentUpdateInformation);
             }
-            catch (WebException)
+            catch (Exception exception)
             {
-                return;
-            }
+	            if (exception is WebException || exception is UriFormatException)
+	            {
+		            return;
+				}
+			}
 
             if (this.currentUpdateInformation?.Remote != null)
             {

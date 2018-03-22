@@ -5,5 +5,5 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" Width="16" Height="16" ToolTipService.InitialShowDelay="100">
-    <iconPacks:PackIconModern Width="{Binding Width, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" Height="{Binding Height, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" Kind="InformationCircle" Foreground="{DynamicResource AccentColorBrush}" />
+	<iconPacks:PackIconModern Width="{Binding Width, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" Height="{Binding Height, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" Kind="InformationCircle" Margin="0" Foreground="{DynamicResource AccentColorBrush}" />
 </UserControl>

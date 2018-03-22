@@ -16,21 +16,20 @@
 
         public Boolean SetChange(Object currentValue, Object newValue, [CallerMemberName] String propertyName = null)
         {
-            ChangeInfo changeInfo;
-            if (this.changes.TryGetValue(propertyName, out changeInfo))
-            {
-                changeInfo.CurrentValue = newValue;
-            }
-            else
-            {
-                changeInfo = new ChangeInfo(currentValue)
-                {
-                    CurrentValue = newValue
-                };
-                this.changes.Add(propertyName, changeInfo);
-            }
+			if (this.changes.TryGetValue(propertyName, out ChangeInfo changeInfo))
+			{
+				changeInfo.CurrentValue = newValue;
+			}
+			else
+			{
+				changeInfo = new ChangeInfo(currentValue)
+				{
+					CurrentValue = newValue
+				};
+				this.changes.Add(propertyName, changeInfo);
+			}
 
-            return changeInfo.IsChanged;
+			return changeInfo.IsChanged;
         }
 
         public Boolean IsChanged

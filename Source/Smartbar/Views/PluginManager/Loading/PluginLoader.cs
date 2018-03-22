@@ -59,6 +59,7 @@
                 catch (Exception ex)
                 {
                     occuredException = ex;
+
                     throw;
                 }
             }

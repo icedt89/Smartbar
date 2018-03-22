@@ -29,9 +29,9 @@
             NullValueHandling = NullValueHandling.Ignore,
             ObjectCreationHandling = ObjectCreationHandling.Auto,
             PreserveReferencesHandling = PreserveReferencesHandling.Objects,
-            Binder = new UnresolvedTypeBinder(),
             ContractResolver = new PrivateSettersEnabledContractResolver(),
-            TypeNameAssemblyFormat = FormatterAssemblyStyle.Full
+			TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Full,
+			SerializationBinder = new UnresolvedTypeBinder()
         };
 
         [NotNull]

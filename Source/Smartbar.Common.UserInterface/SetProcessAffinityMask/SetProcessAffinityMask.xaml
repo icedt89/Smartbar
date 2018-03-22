@@ -22,7 +22,7 @@
                      Style="{StaticResource Window}">
     <mahapps:MetroWindow.LeftWindowCommands>
         <mahapps:WindowCommands>
-            <iconPacks:PackIconModern Kind="TilesFour" Foreground="{DynamicResource WindowBackgroundBrush}" />
+			<iconPacks:PackIconModern Kind="TilesFour" Foreground="{DynamicResource WindowBackgroundBrush}" />
         </mahapps:WindowCommands>
     </mahapps:MetroWindow.LeftWindowCommands>
     <Window.Resources>

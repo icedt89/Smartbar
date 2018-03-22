@@ -1,3 +1,5 @@
+using System.Windows.Threading;
+
 namespace JanHafner.Smartbar.Services
 {
     using System;
@@ -54,7 +56,7 @@ namespace JanHafner.Smartbar.Services
                 return Task.FromResult(MessageBoxResult.None);
             }
 
-            return Application.Current.Dispatcher.InvokeAsync(() =>
+			return Application.Current.Dispatcher.InvokeAsync(() =>
             {
                 var windowOptions = new OpenedWindowOptions(viewModel, WindowService.CreateWindow<TWindow>(viewModel))
                 {
@@ -78,6 +80,7 @@ namespace JanHafner.Smartbar.Services
                 if (windowOptions.IsModal)
                 {
                     this.openedModalWindows.Push(windowOptions);
+
                     windowOptions.Window.ShowDialog();
 
                     this.openedModalWindows.Pop();

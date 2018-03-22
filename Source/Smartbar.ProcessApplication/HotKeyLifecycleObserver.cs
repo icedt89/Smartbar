@@ -96,18 +96,17 @@
                 {
                     foreach (var processApplication in data.Applications.OfType<ProcessApplication>())
                     {
-                        HotKeyRegistration hotKeyRegistration = null;
-                        if (this.allObservedProcessApplications.TryGetValue(processApplication, out hotKeyRegistration))
-                        {
-                            if (hotKeyRegistration != null)
-                            {
-                                this.wpfHotKeyManager.Unregister(processApplication.HotKeyModifier,
-                                    processApplication.HotKey);
-                            }
+						if (this.allObservedProcessApplications.TryGetValue(processApplication, out HotKeyRegistration hotKeyRegistration))
+						{
+							if (hotKeyRegistration != null)
+							{
+								this.wpfHotKeyManager.Unregister(processApplication.HotKeyModifier,
+									processApplication.HotKey);
+							}
 
-                            this.allObservedProcessApplications.Remove(processApplication);
-                        }
-                    }
+							this.allObservedProcessApplications.Remove(processApplication);
+						}
+					}
                 }, ThreadOption.PublisherThread, true)
             };
         }

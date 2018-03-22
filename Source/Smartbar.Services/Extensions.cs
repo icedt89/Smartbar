@@ -7,14 +7,13 @@
     {
         public static TValue GetOrAdd<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, Func<TValue> valueFactory)
         {
-            TValue result;
-            if (!dictionary.TryGetValue(key, out result))
-            {
-                result = valueFactory();
-                dictionary.Add(key, result);
-            }
+			if (!dictionary.TryGetValue(key, out TValue result))
+			{
+				result = valueFactory();
+				dictionary.Add(key, result);
+			}
 
-            return result;
+			return result;
         }
     }
 }

@@ -20,7 +20,7 @@
                      Title="{localize:ResX EditSmartbarSettingsDialogTitle, ResourceType=localization:EditSmartbarSettings}" Style="{StaticResource Window}">
     <mahapps:MetroWindow.LeftWindowCommands>
         <mahapps:WindowCommands>
-            <iconPacks:PackIconModern Kind="Settings" Foreground="{DynamicResource WindowBackgroundBrush}" />
+			<iconPacks:PackIconModern Kind="Settings" Foreground="{DynamicResource WindowBackgroundBrush}" />
         </mahapps:WindowCommands>
     </mahapps:MetroWindow.LeftWindowCommands>
     <mahapps:MetroWindow.RightWindowCommands>

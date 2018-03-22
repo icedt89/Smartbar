@@ -24,13 +24,12 @@ namespace JanHafner.Smartbar.ProcessApplication.Plugins.Urls.CreateApplicationSt
             var internetShortcut = new InternetShortcut();
             IniHelper.ReadIniSection(internetShortcut, data);
 
-            Uri uri;
-            if (!Uri.TryCreate(internetShortcut.Url, UriKind.Absolute, out uri))
-            {
-                throw new InvalidOperationException(String.Format(ExceptionMessages.NoValidUrlSuppliedExceptionMessage, data));
-            }
+			if (!Uri.TryCreate(internetShortcut.Url, UriKind.Absolute, out Uri uri))
+			{
+				throw new InvalidOperationException(String.Format(ExceptionMessages.NoValidUrlSuppliedExceptionMessage, data));
+			}
 
-            var defaultBrowser = DefaultBrowser.Current;
+			var defaultBrowser = DefaultBrowser.Current;
 
             var iconIdentifier = internetShortcut.IconIndex;
             var iconFile = internetShortcut.IconFile;

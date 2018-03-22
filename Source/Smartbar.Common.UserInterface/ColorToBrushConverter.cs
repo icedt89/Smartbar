@@ -14,14 +14,13 @@
         public Object Convert(Object value, Type targetType, Object parameter, CultureInfo culture)
         {
             var color = (Color)value;
-            SolidColorBrush brush;
-            if (!brushCache.TryGetValue(color, out brush))
-            {
-                brush = new SolidColorBrush(color);
-                brushCache.Add(color, brush);
-            }
+			if (!brushCache.TryGetValue(color, out SolidColorBrush brush))
+			{
+				brush = new SolidColorBrush(color);
+				brushCache.Add(color, brush);
+			}
 
-            return brush;
+			return brush;
         }
 
         public Object ConvertBack(Object value, Type targetType, Object parameter, CultureInfo culture)

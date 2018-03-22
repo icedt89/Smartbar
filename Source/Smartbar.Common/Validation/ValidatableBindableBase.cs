@@ -95,7 +95,7 @@
                 this.ValidateProperty(propertyName);
             }
 
-            this.OnPropertyChanged(() => this.IsChanged);
+			this.RaisePropertyChanged(nameof(IsChanged));
             
             return result;
         }
@@ -130,10 +130,9 @@
             var result = true;
             foreach (var validatableProperty in validatableProperties)
             {
-                List<ValidationResult> validationResults;
-                var validationResult = this.TryValidatePropertyCore(validatableProperty.Property, validatableProperty.CurrentValue, out validationResults);
+				var validationResult = this.TryValidatePropertyCore(validatableProperty.Property, validatableProperty.CurrentValue, out List<ValidationResult> validationResults);
 
-                this.errorsContainer.SetErrors(validatableProperty.Property.Name, validationResults.Select(propertyError => propertyError.ErrorMessage));
+				this.errorsContainer.SetErrors(validatableProperty.Property.Name, validationResults.Select(propertyError => propertyError.ErrorMessage));
 
                 if (!validationResult && validationResults.Any())
                 {
@@ -158,10 +157,9 @@
 
             var currentValue = propertyInfo.GetValue(this);
 
-            List<ValidationResult> validationResults;
-            var validationResult = this.TryValidatePropertyCore(propertyInfo, currentValue, out validationResults);
+			var validationResult = this.TryValidatePropertyCore(propertyInfo, currentValue, out List<ValidationResult> validationResults);
 
-            if (!validationResult && validationResults.Any())
+			if (!validationResult && validationResults.Any())
             {
                 propertyErrors.AddRange(validationResults.Select(propertyError => propertyError.ErrorMessage));
             }
@@ -174,14 +172,13 @@
         protected void AddCustomPropertyValidation(String propertyName,
             Action<Object, ICollection<ValidationResult>> validator)
         {
-            ICollection<Action<Object, ICollection<ValidationResult>>> customValidators;
-            if (!this.customValidatorCollection.TryGetValue(propertyName, out customValidators))
-            {
-                customValidators = new List<Action<Object, ICollection<ValidationResult>>>();
-                this.customValidatorCollection[propertyName] = customValidators;
-            }
+			if (!this.customValidatorCollection.TryGetValue(propertyName, out ICollection<Action<object, ICollection<ValidationResult>>> customValidators))
+			{
+				customValidators = new List<Action<Object, ICollection<ValidationResult>>>();
+				this.customValidatorCollection[propertyName] = customValidators;
+			}
 
-            this.customValidatorCollection[propertyName].Add(validator);
+			this.customValidatorCollection[propertyName].Add(validator);
         }
 
 
@@ -200,13 +197,12 @@
                 MemberName = propertyInfo.Name
             };
 
-            ICollection<Action<Object, ICollection<ValidationResult>>> customValidators;
-            if (this.customValidatorCollection.TryGetValue(propertyInfo.Name, out customValidators))
-            {
-                customValidators.ForEach(_ => _(currentValue, results));   
-            }
+			if (this.customValidatorCollection.TryGetValue(propertyInfo.Name, out ICollection<Action<object, ICollection<ValidationResult>>> customValidators))
+			{
+				customValidators.ForEach(_ => _(currentValue, results));
+			}
 
-            var isValid = Validator.TryValidateProperty(currentValue, context, results);
+			var isValid = Validator.TryValidateProperty(currentValue, context, results);
 
             if (!isValid || results.Any())
             {

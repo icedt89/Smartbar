@@ -72,14 +72,13 @@
                         .GetConfigurationOrDefault<ShellLinkDragDropHandlerPluginConfiguration>();
                 foreach (var application in data.Applications)
                 {
-                    String file;
-                    if (!this.handledFiles.TryGetValue(application.Id, out file))
-                    {
-                        continue;
-                    }
+					if (!this.handledFiles.TryGetValue(application.Id, out string file))
+					{
+						continue;
+					}
 
-                    // Remove the entry from the dictionary in any case.
-                    this.handledFiles.Remove(application.Id);
+					// Remove the entry from the dictionary in any case.
+					this.handledFiles.Remove(application.Id);
 
                     if (!pluginConfiguration.TryDeleteSourceShellLink)
                     {

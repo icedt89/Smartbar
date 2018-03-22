@@ -16,13 +16,12 @@ namespace JanHafner.Smartbar.ProcessApplication.Plugins.Urls.CreateApplicationSt
                 throw new ArgumentNullException(nameof(data));
             }
 
-            Uri uri;
-            if (!data.TryCreateValidUri(out uri))
-            {
-                throw new InvalidOperationException(String.Format(ExceptionMessages.NoValidUrlSuppliedExceptionMessage, data));
-            }
+			if (!data.TryCreateValidUri(out Uri uri))
+			{
+				throw new InvalidOperationException(String.Format(ExceptionMessages.NoValidUrlSuppliedExceptionMessage, data));
+			}
 
-            var defaultBrowser = DefaultBrowser.Current;
+			var defaultBrowser = DefaultBrowser.Current;
 
             var applicationId = Guid.NewGuid();
             return new CreateProcessApplicationContainerCommand

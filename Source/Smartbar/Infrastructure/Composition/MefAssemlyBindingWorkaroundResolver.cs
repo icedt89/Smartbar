@@ -11,18 +11,17 @@
 
         public static Assembly CurrentDomainOnAssemblyResolve(Object sender, ResolveEventArgs args)
         {
-            Assembly result;
-            if (!resolvedAssemblies.TryGetValue(args.Name, out result))
-            {
-                var appDomainAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+			if (!resolvedAssemblies.TryGetValue(args.Name, out Assembly result))
+			{
+				var appDomainAssemblies = AppDomain.CurrentDomain.GetAssemblies();
 
-                var simpleAssemblyName = ExtractSimpleAssemblyName(args.Name);
+				var simpleAssemblyName = ExtractSimpleAssemblyName(args.Name);
 
-                result = appDomainAssemblies.FirstOrDefault(a => a.ManifestModule.Name.Equals(simpleAssemblyName, StringComparison.InvariantCultureIgnoreCase));
-                resolvedAssemblies.Add(args.Name, result);
-            }
+				result = appDomainAssemblies.FirstOrDefault(a => a.ManifestModule.Name.Equals(simpleAssemblyName, StringComparison.InvariantCultureIgnoreCase));
+				resolvedAssemblies.Add(args.Name, result);
+			}
 
-            return result;
+			return result;
         }
 
         public static Assembly CurrentDomainOnTypeResolve(Object sender, ResolveEventArgs args)

@@ -55,13 +55,12 @@
             hotKeyModifier = HotKeyModifier.None;
             hotKey = Key.None;
 
-            Tuple<HotKeyModifier, Key> result;
-            if (!urlHotKeyLookup.TryGetValue(possibleHotKey, out result))
-            {
-                return false;
-            }
+			if (!urlHotKeyLookup.TryGetValue(possibleHotKey, out Tuple<HotKeyModifier, Key> result))
+			{
+				return false;
+			}
 
-            hotKeyModifier = result.Item1;
+			hotKeyModifier = result.Item1;
             hotKey = result.Item2;
 
             return true;

@@ -26,9 +26,8 @@ namespace JanHafner.Smartbar.ProcessApplication.ApplicationCreationHandler
 
             var name = PathUtilities.GetIdealFileDisplayName(stringData);
 
-            Int32? identifier;
-            var identifierType = IconIdentifierType.Unknown;
-            var file = SafeNativeMethods.RetrieveAssociatedIcon(stringData, out identifier, out identifierType);
+			var identifierType = IconIdentifierType.Unknown;
+			var file = SafeNativeMethods.RetrieveAssociatedIcon(stringData, out int? identifier, out identifierType);
             if (file == String.Empty && !identifier.HasValue)
             {
                 identifier = 0;
